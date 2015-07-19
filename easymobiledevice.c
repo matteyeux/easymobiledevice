@@ -21,7 +21,7 @@
 int main(int argc, char const *argv[])
 {	
 	int command;
-	char UDiD[40];
+	char UDID[41];
 
 	printf ("Que souhaitez-vous faire \n");
 	printf (" 1) ideviceactivation\n");
@@ -46,13 +46,10 @@ int main(int argc, char const *argv[])
 	printf ("20) iRecovery\n");
 	scanf ("%d", &command);
 	
-	printf ("Souhaitez-vous entrer votre UDID ? (Certaines fonctions de libimobiledevice necessitent votre UDID.\n");
-	printf ("1) OUI\n");
-	printf ("2) NON\n");
-	scanf ("%s", &UDID);
-	
-	printf("%s",&UDID);
-	if (command == 1)
+	printf("Entrez votre UDID\n");
+	scanf("%s", UDID);
+
+	if (command == 1) //ideviceactivation
 	{	int activator;
 		printf("1) Activer votre appareil\n");
 		printf("2) Desactiver votre appareil\n");
@@ -70,7 +67,7 @@ int main(int argc, char const *argv[])
 		}
 	}
 
-	if (command == 2)
+	if (command == 2) //idevicebackup
 	{	int backup;
 		// Ajouter l'UDID
 		printf("1) Sauvegarder\n");
@@ -87,24 +84,108 @@ int main(int argc, char const *argv[])
 			//indiquer ou se trouve la sauvegarde
 		}
 	}
-	if (command == 3)
+	if (command == 3) //idevicecrashreport
 	{
 		printf("idevicecrashreport\n");
 	}
-	if (command == 4)
+	if (command == 4) //idevicedate
 	{
 		printf("idevicedate\n");
+		system("idevicedate");
 	}
-}	if (command == 5)
+	if (command == 5) //idevicedebug
 	{
-		printf("idevicedebug\n");
+		printf("idevicedebug\n"); //A tester
 	}
-	if (command == 6)
-	{
+	if (command == 6) //idevicedebugserverproxy
+	{	
+		int port;
 		printf("idevicedebugserverproxy\n");
+		//printf("port : ");
+		//scanf("%d", &port);
+		//printf("%d\n",port );
+		system("idevicedebugserverproxy -d"); /*Voir pour ajouter un port*/ 
 	}
-	
+	if (command == 7)
+	{	
+		printf("idevicediagnostics\n");
+	}
+	if (command == 8) //idevicediagnostics
+	{
+		printf("ideviceenterrecovery\n");
+		system("ideviceenterrecovery -u");
+	}
+	if (command == 9) //idevice_id
+	{
+		printf("idevice_id\n");
+		system("idevice_id -l"); //OK
+	}
+	if (command == 10) //ideviceimagemounter
+	{
+		printf("ideviceimagemounter\n");
+	}
+	if (command == 11) //ideviceinfo
+	{
+		printf("ideviceinfo\n");
+		system("ideviceinfo");
+	}
+	if (command == 12) //ideviceinstaller
+	{
+		printf("ideviceinstaller\n");
+	}
+	if (command == 13) //idevicename
+	{
+		printf("idevicename\n");
+		system("idevicename");
+	}
+	if (command == 14) //idevicenotificationproxy
+	{
+		printf("idevicenotificationproxy\n");
+	}
+	if (command == 15) //idevicepair
+	{	
+		int apairage;
 
+		printf ("1) idevicepair pair\n");
+		printf ("2) idevicepair unpair\n");
+		scanf("%d", &apairage);
+
+		if (apairage == 1)
+		{
+			printf("idevicepair pair\n");
+		}
+		if (apairage == 2)
+		{
+			printf("idevicepair unpair\n");
+		}
+		else {
+			printf("Mauvaise option\n");
+		}
+
+	}
+	if (command == 16) //ideviceprovision
+	{
+		printf("ideviceprovision\n");
+	}
+	if (command == 17) //idevicerestore
+	{
+		printf("idevicerestore\n"); 
+	}
+	if (command == 18) //idevicescreenshot
+	{
+		printf("idevicescreenshot\n");
+		system("idevicescreenshot");
+	}
+	if (command == 19) //idevicesyslog
+	{
+		printf("idevicesyslog\n");
+		system("idevicesyslog");
+	}
+	if (command == 20) //iRecovery
+	{
+		printf("iRecovery\n");
+	}
+}
 
 
 
