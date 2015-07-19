@@ -23,7 +23,7 @@ print "16) ideviceprovision\n";
 print "17) idevicerestore\n";
 print "18) idevicescreenshot\n";
 print "19) idevicesyslog\n";
-print "20) iRecovery\n\n"
+print "20) iRecovery\n\n";
 my $command = <>;
 chomp $command;
 
@@ -74,18 +74,122 @@ if ($command == 2) {
 	}
 }
 if ($command == 3) {
-	print "Entrez votre UDID\n Si vous ne connaissez pas votre UDID vous pouvez utiliser ideviceinfo ou idevicepair pour afficher celui-ci\n";
+	print "idevicecrashreport\n";
+}
+if ($command == 4) {
+	print "idevicedate\n";
+	`idevicedate`;
+}
+if ($command == 5) {
+	print "idevicedebug\n";
+}
+if ($command == 6) {
+	print "idevicedebugserverproxy\n";
+	print "port : ";
+	my $port = <>;
+	chomp $port;
+	`idevicedebugserverproxy $port -d `; #Fixer le probleme de port pour le .c
+}
+if ($command == 7) {
+	print "idevicediagnostics\n";
+}
+if ($command == 8) {
+	print "Entrez votre UDID\n";
 	my $UDID = <>;
 	chomp $UDID;
-
-	print ""
-
-	`idevicecrashreport -d -e -u $UDID /home`;
+	`ideviceenterrecovery $UDID`;
 
 }
+if ($command == 9) {
+	print "idevice_id\n";
+	`idevice_id -d -l`; #la commande est ok mais rien n'est affché
+}
+if ($command == 10) {
+	print "ideviceimagemounter\n";
+}
+if ($command == 11) {
+	print "ideviceinfo\n";
+	`ideviceinfo`
+}
+if ($command == 12) {
+	print "ideviceinstaller\n";
+}
+if ($command == 13) {
+	print "idevicename\n";
+	`idevicename`;
+}
+if ($command == 14) {
+	print "idevicenotificationproxy\n";
+}
+if ($command == 15) {
+	print "1) idevicepair pair\n";
+	print "2) idevicepair unpair\n";
+	my $idevicepair = <>;
+	chomp $idevicepair;
+	
+	if ($idevicepair == 1) {
+		print "idevicepair pair\n";
+		`idevicepair pair -d `;
+	}
+	if ($idevicepair == 2) {
+		print "idevicepair unpair\n";
+		`idevicepair unpair`;
+	}
 
+}
+if ($command == 16) {
+	
+	print "ideviceprovision\n";
+	print "1) Installer un profil\n";
+	print "2) Afficher les profils installés sur l'appareil\n"; 
+	print "3) Copier les profils installés sur l'appareil\n";
+	print "4) Supprimer un profil\n";
+	print "5) Afficher les informations du profil\n";
+	my $provision = <>;
+	chomp $provision;
 
-
+	if ($provision == 1) {
+		print "Repertoire vers le profil : ";
+		my $PATH = <>;
+		chomp $PATH;
+		system("ideviceprovision install $PATH");
+	}
+	if ($provision == 2) {
+		system("ideviceprovision list");
+	}
+	if ($provision == 3) {
+		print "Entrer le repertoire ou vont etre copies les profils : ";
+		my $PATH = <>;
+		chomp $PATH;
+		system("ideviceprovision copy $PATH");
+	}
+	if ($provision == 4) {
+		print "Entrer l'identifiant du profil (UUID) : ";
+		my $UUID = <>;
+		chomp $UUID;
+		system("ideviceprovision remove $UUID");
+	}
+	if ($provision == 5) {
+		print "Entrer le repertoire vers le profil : ";
+		my $PATH = <>;
+		chomp $PATH;
+		system("ideviceprovision dump $PATH");
+	}
+}
+if ($command == 17) {
+	print "idevicerestore\n";
+}
+if ($command == 18) {
+	print "idevicescreenshot\n";
+	`idevicescreenshot`;
+}
+if ($command == 19) {
+	print "idevicesyslog\n";
+	`idevicesyslog`;
+}
+if ($command == 20) {
+	print "iRecovery\n";
+}
 
 
 
