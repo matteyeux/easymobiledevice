@@ -1,7 +1,6 @@
 #!/usr/bin/perl
-
-
-#Les commandes sont bien executées mais pas affichées
+#Develpoped by Mathieu Hautebas
+#Check the README
 
 use strict;
 use warnings;
