@@ -1,254 +1,188 @@
-#!/usr/bin/perl
+/*
+*Copyright (c) 2015 Mathieu Hautebas
+*
+* This program is free software; you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation; either version 2 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
-use strict;
-use warnings;
+#include <stdio.h>
+#include <stdlib.h>
 
-print "Que souhaitez-vous faire : \n";
-print " 1) ideviceactivation\n";
-print " 2) idevicebackup\n";
-print " 3) idevicecrashreport\n";
-print " 4) idevicedate\n";
-print " 5) idevicedebug\n";
-print " 6) idevicedebugserverproxy\n";
-print " 7) idevicediagnostics\n";
-print " 8) ideviceenterrecovery\n";
-print " 9) idevice_id \n";
-print "10) ideviceimagemounter\n";
-print "11) ideviceinfo\n";
-print "12) ideviceinstaller\n";
-print "13) idevicename\n";
-print "14) idevicenotificationproxy\n";
-print "15) idevicepair\n";
-print "16) ideviceprovision\n";
-print "17) idevicerestore\n";
-print "18) idevicescreenshot\n";
-print "19) idevicesyslog\n";
-print "20) iRecovery\n\n";
-my $command = <>;
-chomp $command;
+int main(int argc, char const *argv[])
+{	
+	int command;
+	char UDID[41];
 
-if ($command == 1) {
-	print "Entrez votre UDID\n";
-	my $UDID = <>;
-	chomp $UDID;
-
-	print "1) Activer\n";
-	print "2) Desactiver\n";
-	my $activator = <>;
-	chomp $activator;
-	if ($activator == 1) {
-		print "Activation...\n";
-		`ideviceactivation activate $UDID`;
-	}
-	if ($activator == 2) {
-		print "Desactivation...\n";
-		`ideviceactivation deactivate $UDID`;
-	}
-}
-if ($command == 2) {
-	print "Entrez votre UDID\n";
-	my $UDID = <>;
-	chomp $UDID;
-
-	print "1) Sauvegarder\n";
-	print "2) Restaurer la sauvegarde\n";
-	my $backup = <>;
-	chomp $backup;
+	printf ("Que souhaitez-vous faire \n");
+	printf (" 1) ideviceactivation\n");
+	printf (" 2) idevicebackup\n");
+	printf (" 3) idevicecrashreport\n");
+	printf (" 4) idevicedate\n");
+	printf (" 5) idevicedebug\n");
+	printf (" 6) idevicedebugserverproxy\n");
+	printf (" 7) idevicediagnostics\n");
+	printf (" 8) ideviceenterrecovery\n");
+	printf (" 9) idevice_id \n");
+	printf ("10) ideviceimagemounter\n");
+	printf ("11) ideviceinfo\n");
+	printf ("12) ideviceinstaller\n");
+	printf ("13) idevicename\n");
+	printf ("14) idevicenotificationproxy\n");
+	printf ("15) idevicepair\n");
+	printf ("16) ideviceprovision\n");
+	printf ("17) idevicerestore\n"); 
+	printf ("18) idevicescreenshot\n");
+	printf ("19) idevicesyslog\n");
+	printf ("20) iRecovery\n");
+	scanf ("%d", &command);
 	
-	if ($backup == 1) {
-		print "Placer la sauvegarde dans : /home/";
-		my $copie_sauvegarde = <>;
-		chomp $copie_sauvegarde;
-		`idevicebackup backup -d -u $UDID $copie_sauvegarde`;
-		
-	}
-	if ($backup == 2) {
-		print "Restauration de la sauvegarde\n";
-		print "Indiquer ou se trouve la sauvegarde : ";
-		my $sauvegarde = <>;
-		chomp $sauvegarde;
-		print "Restauration en cour...\n";
-		`idevicebackup restore -d -u $UDID $sauvegarde`;
-		sleep 10;
-		print "Restauration réussie\n";
-	}
-}
-if ($command == 3) {
-	print "idevicecrashreport\n";
-}
-if ($command == 4) {
-	print "idevicedate\n";
-	`idevicedate`;
-}
-if ($command == 5) {
-	print "idevicedebug\n";
-}
-if ($command == 6) {
-	print "idevicedebugserverproxy\n";
-	print "port : ";
-	my $port = <>;
-	chomp $port;
-	`idevicedebugserverproxy $port -d `; #Fixer le probleme de port pour le .c
-}
-if ($command == 7) {
-	print "idevicediagnostics\n";
-}
-if ($command == 8) {
-	print "Entrez votre UDID\n";
-	my $UDID = <>;
-	chomp $UDID;
-	`ideviceenterrecovery $UDID`;
+	printf("Entrez votre UDID\n");
+	scanf("%s", UDID);
 
-}
-if ($command == 9) {
-	print "idevice_id\n";
-	`idevice_id -d -l`; #la commande est ok mais rien n'est affché
-}
-if ($command == 10) {
-	print "ideviceimagemounter\n";
-}
-if ($command == 11) {
-	print "ideviceinfo\n";
-	`ideviceinfo`
-}
-if ($command == 12) {
-	print "ideviceinstaller\n";
-}
-if ($command == 13) {
-	print "idevicename\n";
-	`idevicename`;
-}
-if ($command == 14) {
-	print "idevicenotificationproxy\n";
-}
-if ($command == 15) {
-	print "1) idevicepair pair\n";
-	print "2) idevicepair unpair\n";
-	my $idevicepair = <>;
-	chomp $idevicepair;
-	
-	if ($idevicepair == 1) {
-		print "idevicepair pair\n";
-		`idevicepair pair -d `;
-	}
-	if ($idevicepair == 2) {
-		print "idevicepair unpair\n";
-		`idevicepair unpair`;
+	if (command == 1) //ideviceactivation
+	{	int activator;
+		printf("1) Activer votre appareil\n");
+		printf("2) Desactiver votre appareil\n");
+		scanf ("%d", &activator);
+
+		if (activator == 1)
+		{	
+			printf("Activation\n");
+			system("ideviceactivation activate");
+		}
+		if (activator == 2)
+		{
+			printf("Desactivation\n");
+			system("ideviceactivation deactivate");
+		}
 	}
 
-}
-if ($command == 16) {
-	
-	print "ideviceprovision\n";
-	print "1) Installer un profil\n";
-	print "2) Afficher les profils installés sur l'appareil\n"; 
-	print "3) Copier les profils installés sur l'appareil\n";
-	print "4) Supprimer un profil\n";
-	print "5) Afficher les informations du profil\n";
-	my $provision = <>;
-	chomp $provision;
-
-	if ($provision == 1) {
-		print "Repertoire vers le profil : ";
-		my $PATH = <>;
-		chomp $PATH;
-		system("ideviceprovision install $PATH");
+	if (command == 2) //idevicebackup
+	{	int backup;
+		// Ajouter l'UDID
+		printf("1) Sauvegarder\n");
+		printf("2) Restaurer la sauvegarde\n");
+		scanf ("%d", &backup);
+		if (backup == 1)
+		{
+			printf("Sauvegarde\n");
+			system("idevicebackup backup -d -u ");
+		}
+		if (backup == 2)
+		{
+			printf("Restauration de la sauvegarde\n");
+			//indiquer ou se trouve la sauvegarde
+		}
 	}
-	if ($provision == 2) {
-		system("ideviceprovision list");
+	if (command == 3) //idevicecrashreport
+	{
+		printf("idevicecrashreport\n");
 	}
-	if ($provision == 3) {
-		print "Entrer le repertoire ou vont etre copies les profils : ";
-		my $PATH = <>;
-		chomp $PATH;
-		system("ideviceprovision copy $PATH");
+	if (command == 4) //idevicedate
+	{
+		printf("idevicedate\n");
+		system("idevicedate");
 	}
-	if ($provision == 4) {
-		print "Entrer l'identifiant du profil (UUID) : ";
-		my $UUID = <>;
-		chomp $UUID;
-		system("ideviceprovision remove $UUID");
+	if (command == 5) //idevicedebug
+	{
+		printf("idevicedebug\n"); //A tester
 	}
-	if ($provision == 5) {
-		print "Entrer le repertoire vers le profil : ";
-		my $PATH = <>;
-		chomp $PATH;
-		system("ideviceprovision dump $PATH");
+	if (command == 6) //idevicedebugserverproxy
+	{	
+		int port;
+		printf("idevicedebugserverproxy\n");
+		//printf("port : ");
+		//scanf("%d", &port);
+		//printf("%d\n",port );
+		system("idevicedebugserverproxy -d"); /*Voir pour ajouter un port*/ 
+	}
+	if (command == 7)
+	{	
+		printf("idevicediagnostics\n");
+	}
+	if (command == 8) //idevicediagnostics
+	{
+		printf("ideviceenterrecovery\n");
+		system("ideviceenterrecovery -u");
+	}
+	if (command == 9) //idevice_id
+	{
+		printf("idevice_id\n");
+		system("idevice_id -l"); //OK
+	}
+	if (command == 10) //ideviceimagemounter
+	{
+		printf("ideviceimagemounter\n");
+	}
+	if (command == 11) //ideviceinfo
+	{
+		printf("ideviceinfo\n");
+		system("ideviceinfo");
+	}
+	if (command == 12) //ideviceinstaller
+	{
+		printf("ideviceinstaller\n");
+	}
+	if (command == 13) //idevicename
+	{
+		printf("idevicename\n");
+		system("idevicename");
+	}
+	if (command == 14) //idevicenotificationproxy
+	{
+		printf("idevicenotificationproxy\n");
+	}
+	if (command == 15) //idevicepair
+	{	
+		int apairage;
+
+		printf ("1) idevicepair pair\n");
+		printf ("2) idevicepair unpair\n");
+		scanf("%d", &apairage);
+
+		if (apairage == 1)
+		{
+			printf("idevicepair pair\n");
+		}
+		if (apairage == 2)
+		{
+			printf("idevicepair unpair\n");
+		}
+		else {
+			printf("Mauvaise option\n");
+		}
+
+	}
+	if (command == 16) //ideviceprovision
+	{
+		printf("ideviceprovision\n");
+	}
+	if (command == 17) //idevicerestore
+	{
+		printf("idevicerestore\n"); 
+	}
+	if (command == 18) //idevicescreenshot
+	{
+		printf("idevicescreenshot\n");
+		system("idevicescreenshot");
+	}
+	if (command == 19) //idevicesyslog
+	{
+		printf("idevicesyslog\n");
+		system("idevicesyslog");
+	}
+	if (command == 20) //iRecovery
+	{
+		printf("iRecovery\n");
 	}
 }
-if ($command == 17) {
-	print "idevicerestore\n";
-}
-if ($command == 18) {
-	print "idevicescreenshot\n";
-	`idevicescreenshot`;
-}
-if ($command == 19) {
-	print "idevicesyslog\n";
-	`idevicesyslog`;
-}
-if ($command == 20) {
-	print "iRecovery\n";
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
