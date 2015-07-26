@@ -1,6 +1,7 @@
 #!/usr/bin/perl
-#Develpoped by Mathieu Hautebas
-#Check the README
+
+
+#Les commandes sont bien executées mais pas affichées
 
 use strict;
 use warnings;
@@ -29,7 +30,7 @@ print "20) iRecovery\n\n";
 my $command = <>;
 chomp $command;
 
-if ($command == 1) {
+if ($command == 1 ) {
 	print "Entrez votre UDID\n";
 	my $UDID = <>;
 	chomp $UDID;
@@ -380,18 +381,7 @@ if ($command == 20) {
 	}
 	if ($recovery == 3) {
 		print "Il faut etre superutilisateur pour utiliser cette fonction\n";
-		print "Etes vous root ? \n";
-		print "1) OUI\n";
-		print "2) NON\n";
-		my $reponse = <>;
-		chomp $reponse;
-
-		if ($reponse == 1) {
-			system ("irecovery -n");
-		}
-		else {
-			print "Executez le programme en root (su)\n";
-		}
+		system ("sudo irecovery -n");
 	}
 	if ($recovery == 4) {
 		print "Entrer le repertoire vers le script à executer : ";
@@ -399,4 +389,7 @@ if ($command == 20) {
 		chomp $PATH;
 		system("irecovery -e $PATH");
 	}	
+	else {
+		print "Mauvaise option"
+	}
 }
