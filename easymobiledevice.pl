@@ -1,13 +1,13 @@
 #!/usr/bin/perl
-
-
-#Les commandes sont bien executées mais pas affichées
+#Command line interface to use Libimobiledevice
+#Utility developed by Mathieu Hautebas
+#
 
 use strict;
 use warnings;
 system("clear");
 print "Que souhaitez-vous faire : \n";
-print " 1) ideviceactivation *\n";
+print " 1) ideviceactivation \n";
 print " 2) idevicebackup *restauration de la sauvegarde\n";
 print " 3) idevicecrashreport\n";
 print " 4) idevicedate\n";
@@ -27,10 +27,12 @@ print "17) idevicerestore\n";
 print "18) idevicescreenshot\n";
 print "19) idevicesyslog\n";
 print "20) iRecovery\n\n";
+print "Commande : ";
 my $command = <>;
 chomp $command;
 
 if ($command == 1 ) {
+	system("clear");
 	print "Entrez votre UDID\n";
 	my $UDID = <>;
 	chomp $UDID;
@@ -49,6 +51,7 @@ if ($command == 1 ) {
 	}
 }
 if ($command == 2) { #Check du code source de idevicebackup pour voir comment il detecte la version
+	system("clear");
 	print "1) Sauvegarde\n";
 	print "2) Restaurer une sauvegarde\n";
 	my $backup = <>;
@@ -102,6 +105,7 @@ if ($command == 2) { #Check du code source de idevicebackup pour voir comment il
 	}
 }	
 if ($command == 3) {
+	system("clear");
 	print "1) Extraire le rapport de crash dans un fichier separé .crash\n";
 	print "2) Copier sans supprimerle rapport de crash de l'appareil\n";
 	my $crashreport = <>;
@@ -121,14 +125,23 @@ if ($command == 3) {
 	}
 }
 if ($command == 4) {
-	print "idevicedate\n";
+	system("clear");
+	print "\n";
 	system("idevicedate");
 }
 if ($command == 5) {
-	print "idevicedebug\n";
+	system("clear");
+	print "Entrer les variables d'environement : ";
+	my $variable = <>;
+	chomp $variable;
+	print "Entrer la commande : ";
+	my $cmd = <>;
+	chomp $cmd;
+	system("idevicedebug -d -e $variable $cmd");  
+	
 }
 if ($command == 6) {
-	print "idevicedebugserverproxy\n";
+	system("clear");
 	print "port : ";
 	my $port = <>;
 	chomp $port;
@@ -176,6 +189,7 @@ if ($command == 7) {
 }
 
 if ($command == 8) {
+	system("clear");
 	print "Entrez votre UDID\n";
 	my $UDID = <>;
 	chomp $UDID;
@@ -183,16 +197,18 @@ if ($command == 8) {
 
 }
 if ($command == 9) {
+	system("clear");
 	system("idevice_id -l");
 }
 if ($command == 10) {
+	system("clear");
 	print "Entrer le repertoire vers le ficher à monter : ";
 	my $PATH = <>;
 	chomp $PATH;
 	system("ideviceimagemounter $PATH");
 }
 if ($command == 11) {
-	print "ideviceinfo\n";
+	system("clear");
 	system("ideviceinfo");
 }
 if ($command == 12) {
@@ -389,7 +405,4 @@ if ($command == 20) {
 		chomp $PATH;
 		system("irecovery -e $PATH");
 	}	
-	else {
-		print "Mauvaise option"
-	}
 }
