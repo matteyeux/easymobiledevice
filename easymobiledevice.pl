@@ -1,24 +1,25 @@
 #!/usr/bin/perl
-#Command line interface to use Libimobiledevice
-#Utility developed by Mathieu Hautebas
-#
+#Last update : 27/07/2015
+#Command line interface to use Libimobiledevice easily
+#Utility developed by Mathieu Hautebas (MatteYeux), thanks to Elro74 to bring Libimobiledevice easier to compile
+#		<libimobiledevice.org>
 
 use strict;
 use warnings;
 system("clear");
 print "Que souhaitez-vous faire : \n";
 print " 1) ideviceactivation \n";
-print " 2) idevicebackup *restauration de la sauvegarde\n";
+print " 2) idevicebackup\n";
 print " 3) idevicecrashreport\n";
 print " 4) idevicedate\n";
-print " 5) idevicedebug *\n";
-print " 6) idevicedebugserverproxy *\n";
+print " 5) idevicedebug\n";
+print " 6) idevicedebugserverproxy\n";
 print " 7) idevicediagnostics\n";
 print " 8) ideviceenterrecovery\n";
 print " 9) idevice_id \n";
-print "10) ideviceimagemounter *\n";
+print "10) ideviceimagemounter\n";
 print "11) ideviceinfo\n";
-print "12) ideviceinstaller *\n";
+print "12) ideviceinstaller\n";
 print "13) idevicename\n";
 print "14) idevicenotificationproxy\n";
 print "15) idevicepair\n";
@@ -275,7 +276,22 @@ if ($command == 13) {
 	system("idevicename");
 }
 if ($command == 14) {
-	print "idevicenotificationproxy\n";
+	print "1) Post ID\n";
+	print "2) Observe ID\n";
+	my $notification = <>;
+	chomp $notification;
+	if ($notification == 1) {
+		print "ID : ";
+		my $ID = <>;
+		chomp $ID;
+		system("idevicenotificationproxy -d post $ID");
+	}
+	if ($notification == 2) {
+		print "ID : ";
+		my $ID = <>;
+		chomp $ID;
+		system("idevicenotificationproxy -d observe $ID");
+	}
 }
 if ($command == 15) {
 	print "1) idevicepair pair\n";
