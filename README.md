@@ -1,4 +1,4 @@
-Easymobiledeivice
+#Easymobiledeivice
 
 Un script en perl qui permet d'utiliser simplement libimobilevice.
 Pour utiliser celui-ci, vous devez le rendre executable avant tout (chmod +x).
