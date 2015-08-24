@@ -27,13 +27,13 @@ This utility works for Linux and OS X. <br>
 A Windows version will come later this year (I hope). <br>
 A perl version has been already released. <br>
 
-#TODO
+###TODO
 
 Add some features like iFuse and other stuff in the 0.2 version. <br>
 Add license for open source code. <br>
 French version of the Readme <br>
 
-#Credits
+###Credits
 
 Utility developed by Mathieu Hautebas (matteyeux). <br>
 Thank you to libimobiledevice team to build awesome tools. <br>
