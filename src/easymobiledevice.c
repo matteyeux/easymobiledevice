@@ -29,7 +29,7 @@ int main(int argc, char const *argv[])
 	int choice;
 
 	system("clear");
-	printf ("What de you need ?\n");
+	printf("Choose an option")
 	printf (" 1) ideviceactivation\n");
 	printf (" 2) idevicebackup\n");
 	printf (" 3) idevicecrashreport\n");
