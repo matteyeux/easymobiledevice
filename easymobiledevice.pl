@@ -30,7 +30,7 @@ print "19) idevicesyslog\n";
 print "20) iRecovery\n\n";
 print "Commande : ";
 my $command = <>;
-chomp $command;
+chomp $command; 
 
 if ($command eq "ideviceactivation || $command == 1") 
 {
