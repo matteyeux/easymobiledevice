@@ -20,7 +20,7 @@ spinner() {
         printf "\b\b\b\b\b\b"
     done
     printf "    \b\b\b\b"
-}
+} 
 
 buildlibs() {
 	for i in "${libs[@]}"
