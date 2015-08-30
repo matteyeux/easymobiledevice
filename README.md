@@ -16,12 +16,12 @@ You have to run these commands :
 
 chmod +x apt-get.sh <br>
  `./apt-get.sh` <br>
-./autobuild.sh <br>
+`./autobuild.sh` <br>
 
 ### For MAC OS X
 You have to run this command : 
 
-./brew.sh
+`./brew.sh``
 
 This utility works for Linux and OS X.
 A Windows version will come later this year (I hope).
