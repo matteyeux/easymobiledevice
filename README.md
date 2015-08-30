@@ -1,40 +1,40 @@
 #Easymobiledevice 0.1
 
-=== ENGLISH === <br>
+=== ENGLISH ===
 
-Easymobiledevice is a command line interface to help you to use easier libimobiledevice. <br>
-I've already release a Perl script for Easymobiledevice, but it's in French, I'll translate it soon. <br>
+Easymobiledevice is a command line interface to help you to use easier libimobiledevice.
+I've already release a Perl script for Easymobiledevice, but it's in French, I'll translate it soon.
 
-Before executing this programm you'll need to install libimobiledevice. <br>
-Your can use @Elro74's scripts which install dependencies and compile it automaticly. <br>
-I added these scripts to the project. <br>
+Before executing this programm you'll need to install libimobiledevice.
+Your can use @Elro74's scripts which install dependencies and compile it automaticly.
+I added these scripts to the project.
 
-If you need some help contact me on Twitter : matteyeux <br>
+If you need some help contact me on Twitter : matteyeux
  
 ### For Linux
-You have to run these commands :  <br>
+You have to run these commands :
 
-chmod +x apt-get.sh  <br>
-./apt-get.sh <br>
-./autobuild.sh <br>
+chmod +x apt-get.sh
+./apt-get.sh
+./autobuild.sh
 
 ### For MAC OS X
-You have to run this command :  <br> 
+You have to run this command : 
 
-./brew.sh  <br>
+./brew.sh
 
-This utility works for Linux and OS X. <br>
-A Windows version will come later this year (I hope). <br>
-A perl version has been already released. <br>
+This utility works for Linux and OS X.
+A Windows version will come later this year (I hope).
+A perl version has been already released.
 
-###TODO
+#TODO
 
-Add some features like iFuse and other stuff in the 0.2 version. <br>
-Add license for open source code. <br>
-French version of the Readme <br>
+Add some features like iFuse and other stuff in the 0.2 version.
+Add license for open source code.
+French version of the Readme
 
-###Credits
+#Credits
 
-Utility developed by Mathieu Hautebas (matteyeux). <br>
-Thank you to libimobiledevice team to build awesome tools. <br>
-Thank you to my friend @Elro74 for these scripts. <br>
+Utility developed by Mathieu Hautebas (matteyeux).
+Thank you to libimobiledevice team to build awesome tools.
+Thank you to my friend @Elro74 for these scripts.
