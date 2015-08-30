@@ -14,9 +14,9 @@ If you need some help contact me on Twitter : matteyeux
 ### For Linux
 You have to run these commands :
 
-chmod +x apt-get.sh
-./apt-get.sh
-./autobuild.sh
+chmod +x apt-get.sh <br>
+./apt-get.sh <br>
+./autobuild.sh <br>
 
 ### For MAC OS X
 You have to run this command : 
