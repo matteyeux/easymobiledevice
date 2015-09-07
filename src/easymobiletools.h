@@ -19,3 +19,5 @@ int idevicerestore();
 int idevicescreenshot();
 int idevicesyslog();
 int irecovery();
+int option();
+

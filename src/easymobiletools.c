@@ -570,3 +570,19 @@ int irecovery()
 	}
 	return 0;
 }
+
+int option()
+{	
+	char choice[10];
+	printf("Copy easymobiledevice in PATH (Linux & OS X only) ?\n");
+	scanf("%s", choice);
+	if (stricmp(choice, "oui")==0 || stricmp(choice, "1")==0)
+	{
+		printf("sudo cp easymobiledevice /usr/local/bin\n");
+	}
+	else if (stricmp(choice, "non")==0 || stricmp(choice, "2")==0)
+	{
+		return 0;
+	}
+
+}

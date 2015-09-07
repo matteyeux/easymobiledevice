@@ -49,16 +49,11 @@ int main(int argc, char const *argv[])
 	printf ("17) idevicerestore\n"); 
 	printf ("18) idevicescreenshot\n");
 	printf ("19) idevicesyslog\n");
-	printf ("20) iRecovery\n\n");
+	printf ("20) iRecovery\n");
+	printf ("21) Options \n\n"); //I'll add some options
 	printf("Commande : ");
 	scanf ("%d", &choice);
 
-	if (choice >20)
-	{
-		printf("\nInvalid command\n");
-		sleep (5);
-	}
-	
 	switch (choice)
 	{
 		case 1 : ideviceactivation(); break;
@@ -81,6 +76,7 @@ int main(int argc, char const *argv[])
 		case 18 : idevicescreenshot(); break;
 		case 19 : idevicesyslog(); break;
 		case 20 : irecovery(); break;
+		case 21 : option(); break;	
 	}
 	return (EXIT_SUCCESS);
 }
