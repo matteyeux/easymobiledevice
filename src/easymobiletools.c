@@ -1,6 +1,7 @@
 #include "easymobiletools.h"
 #include <stdio.h>
 #include <stdlib.h>
+printf("plop\n");
 
 int keyboard_reader(char* path, int taille)
 {	
