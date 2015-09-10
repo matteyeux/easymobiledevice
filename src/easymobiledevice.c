@@ -77,7 +77,7 @@ int main(int argc, char const *argv[])
 		case 18 : idevicescreenshot(); break;
 		case 19 : idevicesyslog(); break;
 		case 20 : irecovery(); break;
-		case 21 : option(); break;	
+		case 21 : option(); break;	//Should work
 	}
 	return EXIT_SUCCESS;
 }
