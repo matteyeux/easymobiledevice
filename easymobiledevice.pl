@@ -3,7 +3,6 @@
 #Command line interface to use Libimobiledevice easily
 #Utility developed by Mathieu Hautebas (MatteYeux), thanks to Elro74 to bring Libimobiledevice easier to compile
 #<libimobiledevice.org>
-
 use strict;
 use warnings;
 system("clear");
