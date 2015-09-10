@@ -582,7 +582,7 @@ int option()
 	}
 	else if (stricmp(choice, "non")==0 || stricmp(choice, "2")==0)
 	{
-		return 0;
+		printf("\n");
 	}
 
 }
