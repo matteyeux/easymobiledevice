@@ -1,7 +1,6 @@
 #include "easymobiletools.h"
 #include <stdio.h>
 #include <stdlib.h>
-printf("plop\n");
 
 int keyboard_reader(char* path, int taille)
 {	
@@ -574,16 +573,18 @@ int irecovery()
 
 int option()
 {	
-	char choice[10];
+	char choice[80];
 	printf("Copy easymobiledevice in PATH (Linux & OS X only) ?\n");
-	scanf("%s", choice);
-	if (stricmp(choice, "oui")==0 || stricmp(choice, "1")==0)
-	{
-		printf("sudo cp easymobiledevice /usr/local/bin\n");
-	}
-	else if (stricmp(choice, "non")==0 || stricmp(choice, "2")==0)
-	{
-		return 0;
-	}
+	printf("1) YES\n");
+    printf("2) NO\n");
+    scanf("%s", choice);
 
+    if (strcmp(choice, "yes")==0 || strcmp(choice, "YES")==0 || strcmp(choice, "1")==0)
+    {
+    	system("sudo cp easymobiledevice /usr/local/bin/");
+    }
+    else if(strcmp(choice, "no")==0 || strcmp(choice, "NO")==0 || strcmp(choice,"2")==0)
+    {
+    	return 0;
+    }
 }
