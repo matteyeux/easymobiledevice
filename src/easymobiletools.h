@@ -1,4 +1,10 @@
+int fgetn();
+void nBuffer();
+int fget(char *chain, int sizee);
+int cmin(char *chain);
+float fgetf();
 int keyboard_reader();
+
 int ideviceactivation ();
 int idevicebackup ();
 int idevicecrashreport();
