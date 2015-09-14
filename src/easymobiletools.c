@@ -1,5 +1,4 @@
 #include "easymobiletools.h"
-#include "functions.c"
 #include "prototypes.h"
 #include <stdio.h>
 #include <stdlib.h>
