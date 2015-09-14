@@ -21,7 +21,6 @@
 #include <time.h>
 #include "easymobiletools.h"
 #include "prototypes.h"
-#include "functions.c"
 
 
 
