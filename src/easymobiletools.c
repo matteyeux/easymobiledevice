@@ -2,15 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int keyboard_reader(char* path, int taille)
-{	
-	int i = 0;
-	fgets(path, taille, stdin);
-	while(path[i] && (path[i] != '\n')) i++;
-	path[i] = '\0';
-	return (i);
-}
-
 int ideviceactivation()
 {	
 	int choice;
@@ -154,6 +145,32 @@ int idevicedebugserverproxy()
 	return 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int idevicediagnostics()
 {	
 	int choice;
@@ -166,26 +183,26 @@ int idevicediagnostics()
 	printf("4) Shutdown device\n");
 	printf("5) Restart device\n");
 	printf("6) Put device into sleep mode\n");
-	scanf("%d", &choice);
+	choice = fgetn();
 
 	if (choice == 1)
 	{
 		printf("Enter the type of the command : ");
-		scanf("%s", cmd);
+		fget(cmd, 80);
 		sprintf(buildCommand, "idevicediagnostics diagnostics -d %s", cmd);
 		system(buildCommand);
 	}
 	if (choice == 2)
 	{
 		printf("Enter the keys : ");
-		scanf("%s", cmd);
+		fget(cmd, 80);
 		sprintf(buildCommand, "idevicediagnostics mobilegestalt -d KEY %s", cmd);
 		system(buildCommand);
 	}
 	if (choice == 3 )
 	{
 		printf("Enter command : ");
-		scanf("%s", cmd);
+		fget(cmd, 80);
 		sprintf(buildCommand, "idevicediagnostics ioreg %s", cmd);
 		system(buildCommand);
 	}
@@ -204,7 +221,7 @@ int idevicediagnostics()
 		printf("Putting device into sleep mode...\n");
 		system("idevicediagnostics sleep");
 	}
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int ideviceenterrecovery()
@@ -213,17 +230,16 @@ int ideviceenterrecovery()
 	char UDID[80];
 	system("clear");
 	printf("Enter UDID : ");
-	scanf("%s", UDID);
+	fget(UDID, 80);
 	sprintf(buildCommand, "ideviceenterrecovery %s", UDID);
 	system(buildCommand);
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int idevice_id()
 {	
-	system("clear");
-	system("idevice_id");
-	return 0;
+	system("clear; idevice_id");
+	return EXIT_SUCCESS;
 }
 
 int ideviceimagemounter()
@@ -233,20 +249,19 @@ int ideviceimagemounter()
 	char imgfile[80];
 	system("clear");
 	printf("Enter option : ");
-	scanf("%s", option);
+	fget(option, 80);
 	printf("Enter directory to the image file : ");
-	scanf("%s", imgfile);
+	fget(imgfile, 80);
 
 	sprintf(buildCommand, "ideviceimagemounter %s %s ", option, imgfile);
 	system(buildCommand);
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int ideviceinfo()
 {	
-	system("clear");
-	system("ideviceinfo");
-	return 0;
+	system("clear; ideviceinfo");
+	return EXIT_SUCCESS;
 }
 
 int ideviceinstaller()
@@ -267,14 +282,14 @@ int ideviceinstaller()
 	printf("7) Remove APPID\n");
 	printf("8) Restore APPID\n");
 
-	scanf("%d", &choice);
+	choice = fgetn();
 
 	if (choice == 1)
 	{	
 		printf("1) Mobile apps\n");
 		printf("2) System apps\n");
 		printf("3) All apps\n");
-		scanf("%d", &apps);
+		apps = fgetn();
 
 		if (apps == 1)
 		{
@@ -292,21 +307,21 @@ int ideviceinstaller()
 	if (choice == 2)
 	{
 		printf("Enter the directory from the archive : ");
-		scanf("%s", path);
+		fget(path, 120);
 		sprintf(buildCommand, "ideviceinstaller -i %s",path);
 		system(buildCommand);
 	}
 	if (choice == 3)
 	{	
 		printf("Enter APPID to uninstall : ");
-		scanf("%s", appid);
+		fget(appid, 80);
 		sprintf(buildCommand,"ideviceinstaller -U %s", appid);
 		system(buildCommand);
 	}
 	if (choice == 4)
 	{
-		printf("Enter archive tu upgrade : ");
-		scanf("%s", appid);
+		printf("Enter archive to upgrade : ");
+		fget(appid, 80);
 		sprintf(buildCommand, "ideviceinstaller -g %s", appid);
 		system(buildCommand);		
 	}
@@ -317,33 +332,32 @@ int ideviceinstaller()
 	if (choice == 6)
 	{
 		printf("This command will uninstall the package after making an archive, enter the APPID : ");
-		scanf("%s", appid);
+		fget(appid, 80);
 		sprintf(buildCommand, "ideviceinstaller -a uninstall %s", appid);
 		system(buildCommand);
 	}
 	if (choice == 7)
 	{
 		printf("Restore archived app specified by APPID, enter APPID : ");
-		scanf("%s", appid);
+		fget(appid, 80);
 		sprintf(buildCommand, "ideviceinstaller -r %s", appid);
 		system(buildCommand);
 	}
 	if (choice == 8)
 	{
 		printf("Remove app archive specified by APPID, enter the APPID : ");
-		scanf("%s", appid);
+		fget(appid, 80);
 		sprintf(buildCommand, "ideviceinstaller -R %s", appid);
 		system(buildCommand);
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int idevicename()
 {
-	system("clear");
-	system("idevicename");
-	return 0;
+	system("clear; idevicename");
+	return EXIT_SUCCESS;
 }
 
 int idevicenotificationproxy ()
@@ -353,22 +367,22 @@ int idevicenotificationproxy ()
 	char buildCommand[1024];
 	printf("1) POST ID\n");
 	printf("2) Observe ID\n");
-	scanf("%d", &choice);
+	choice = fgetn();
 	if (choice == 1)
 	{
 		printf("ID : ");
-		scanf("%d", &ID);
+		ID = fgetn();
 		sprintf(buildCommand, "idevicenotificationproxy -d post %d", ID);
 		system(buildCommand);
 	}
 	if (choice == 2)
 	{
 		printf("ID : ");
-		scanf("%d", &ID);
+		ID = fgetn();
 		sprintf(buildCommand, "idevicenotificationproxy -d observe %d", ID);
 		system(buildCommand);
 	}
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int idevicepair()
@@ -377,7 +391,7 @@ int idevicepair()
 	printf("1) Pair\n");
 	printf("2) Unpair\n");
 	printf("3) List devices paired with this host\n");
-	scanf("%d", &choice);
+	choice = fgetn();
 	if (choice == 1)
 	{
 		system("idevicepair pair");
@@ -390,7 +404,7 @@ int idevicepair()
 	{
 		system("idevicepair list");
 	}
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int ideviceprovision()
@@ -405,12 +419,12 @@ int ideviceprovision()
 	printf("3) Copy all profiles from the device to the host\n");
 	printf("4) Remove profile using his UUID\n");
 	printf("5) Display informations about a profile\n");
-	scanf("%d", &choice);
+	choice = fgetn();
 
 	if (choice == 1)
 	{
 		printf("Enter the directory to the file : ");
-		scanf("%s", path);
+		fget(path, 1024);
 		sprintf(buildCommand, "ideviceprovision install %s", path);
 		system(buildCommand);
 	}
@@ -421,25 +435,25 @@ int ideviceprovision()
 	if (choice == 3)
 	{
 		printf("Enter the directory to copy the files : ");
-		scanf("%s", path);
+		fget(path, 1024);
 		sprintf(buildCommand, "ideviceprovision copy %s", path);
 		system(buildCommand);
 	}
 	if (choice == 4)
 	{
 		printf("Enter the UUID of the profile : ");
-		scanf("%s", UUID);
+		fget(UUID, 80);
 		sprintf(buildCommand, "ideviceprovision remove %s", UUID);
 		system(buildCommand);
 	}
 	if (choice == 5)
 	{
 		printf("Enter the directory to the file to dump : ");
-		scanf("%s", path);
+		fget(path, 1024);
 		sprintf(buildCommand,"ideviceprovision dump %s", path);
 		system(buildCommand);
 	}
-	return 0;
+	return EXIT_SUCCESS;
 }
 int idevicescreenshot()
 {	
@@ -448,10 +462,10 @@ int idevicescreenshot()
 
 	system("clear");
 	printf("Enter the directory to copy the screenshot : ");
-	scanf("%s", path);
+	fget(path, 1024);
 	sprintf(buildCommand, "idevicescreenshot %s", path);
 	system(buildCommand);
-	return 0;
+	return EXIT_SUCCESS;
 }
 int idevicerestore()
 {	
@@ -464,18 +478,18 @@ int idevicerestore()
 	printf("1) Restore and keep DATA\n");
 	printf("2) Restore device\n");
 	printf("3) Restore using a Custom Firmware\n");
-	scanf("%d", &choice);
+	choice = fgetn();
 
 	if (choice == 1)
 	{
 		printf("Do you want to use an IPSW file ?\n");
 		printf("1) YES\n");
 		printf("2° NO\n");
-		scanf("%d", &ipsw);
+		ipsw = fgetn();
 		if (ipsw == 1)
 		{
 			printf("Enter the directory to the file : ");
-			scanf("%s",path);
+			fget(path, 1024);
 			sprintf(buildCommand, "idevicerestore -d %s", path);
 			printf("%s\n",buildCommand);
 			//system(buildCommand);
@@ -489,14 +503,14 @@ int idevicerestore()
 	}
 	if (choice == 2)
 	{
-		printf("Do you want to use an IPSW file ?\n");
-		printf("1) YES\n");
-		printf("2) NO\n");
-		scanf("%d", &ipsw);
+		printf("Do you have an ipsw or shall i download it ?\n");
+		printf("1) Yes i've got an ipsw.\n");
+		printf("2) No, please download the ipsw file.\n");
+		ipsw = fgetn();
 		if (ipsw == 1)
 		{	
 			printf("Enter the directory to the file : ");
-			scanf("%s",path);
+			fget(path, 1024);
 			sprintf(buildCommand, "idevicerestore -d -e %s", path);
 			printf("%s\n",buildCommand);
 			system(buildCommand);
@@ -509,12 +523,12 @@ int idevicerestore()
 	if (choice == 3)
 	{
 		printf("Enter the directory to the file : ");
-		scanf("%s", path);
+		fget(path, 1024);
 		sprintf(buildCommand, "idevicerestore -d -c %s", path);
 		system(buildCommand);
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int idevicesyslog()
@@ -522,7 +536,7 @@ int idevicesyslog()
 	system("clear");
 	printf("Press Ctrl + C to stop the process\n");
 	system("idevicesyslog");
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int irecovery()
@@ -537,18 +551,18 @@ int irecovery()
 	printf("3) Reboot device into normal mode\n");
 	printf("4) Execute recovery script\n");
 	printf("5) Start an interactive shell\n");
-	scanf("%d", &choice);
+	choice = fgetn();
 	if (choice == 1)
 	{
 		printf("Enter the directory to the file : ");
-		scanf("%s", path);
+		fget(path, 1024);
 		sprintf(buildCommand, "sudo irecovery -f %s", path);
 		system(buildCommand);
 	}
 	if (choice == 2)
 	{
 		printf("Entrer the directory to the file : ");
-		scanf("%s", path);
+		fget(path, 1024);
 		sprintf(buildCommand, "sudo irecovery -k %s", path);
 		system(buildCommand);
 	}
@@ -560,7 +574,7 @@ int irecovery()
 	if (choice == 4)
 	{
 		printf("Enter the directory to the file : ");
-		scanf("%s", path);
+		fget(path, 1024);
 		sprintf(buildCommand, "sudo irecovery -e %s", path);
 		system(buildCommand);
 	}
@@ -568,23 +582,22 @@ int irecovery()
 	{
 		system("sudo irecovery -s");
 	}
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int option()
 {	
 	char choice[80];
-	printf("Copy easymobiledevice in PATH (Linux & OS X only) ?\n");
-	printf("1) YES\n");
-    printf("2) NO\n");
-    scanf("%s", choice);
+	printf("Copy easymobiledevice in PATH (Linux & OS X only) ? : ");
+    fget(choice, 80);
+    cmin(choice);
 
-    if (strcmp(choice, "yes")==0 || strcmp(choice, "YES")==0 || strcmp(choice, "1")==0)
+    if (strcmp(choice, "yes")==0 || )
     {
     	system("sudo cp easymobiledevice /usr/local/bin/");
     }
-    else if(strcmp(choice, "no")==0 || strcmp(choice, "NO")==0 || strcmp(choice,"2")==0)
+    else if(strcmp(choice, "no")==0)
     {
-    	return 0;
+    	return EXIT_SUCCESS;
     }
 }
