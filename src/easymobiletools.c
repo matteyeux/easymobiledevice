@@ -1,4 +1,6 @@
 #include "easymobiletools.h"
+#include "functions.c"
+#include "prototypes.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -8,7 +10,7 @@ int ideviceactivation()
 	system("clear");
 	printf("1) Activate\n");
 	printf("2) Deactivate\n");
-	scanf("%d", &choice);
+	choice = fgetn();
 	if (choice == 1)
 	{	
 		printf("Activation\n");
@@ -19,7 +21,7 @@ int ideviceactivation()
 		printf("Desactivation\n");
 		system("ideviceactivation deactivate");
 	}
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int idevicebackup ()
@@ -32,9 +34,9 @@ int idevicebackup ()
 	system("clear");
 	printf("1) Backup\n");
 	printf("2) Restore backup\n");
-	scanf ("%d", &choice);
+	choice = fgetn();
 	printf("iOS version : ");
-	scanf("%f", &version);
+	version = fgetf();
 
 	if (version < 4)
 	{
@@ -43,14 +45,14 @@ int idevicebackup ()
 		if (choice == 1)
 		{
 			printf("Enter the directory to copy the backup : ");
-			scanf("%s", path);	//scanf("%s", path);
+			fget(path, 120);
 			sprintf(buildCommand, "idevicebackup backup %s", path);
 			system(buildCommand);
 		}
 		if (choice == 2)
 		{
 			printf("Enter the directory to the backup : ");
-			scanf("%s", path);
+			fget(path, 120);
 			sprintf(buildCommand, "idevicebackup restore %s", path);
 			system(buildCommand);
 		}
@@ -63,19 +65,19 @@ int idevicebackup ()
 		if (choice == 1)
 		{
 			printf("Enter the directory to copy the backup : ");
-			scanf("%s", path);
+			fget(path, 120);
 			sprintf(buildCommand, "idevicebackup2 backup %s", path);
 			system(buildCommand);
 		}
 		if (choice == 2)
 		{
 			printf("Enter the directory to the backup : ");
-			scanf("%s", path);
+			fget(path, 120);
 			sprintf(buildCommand, "idevicebackup restore %s", path);
 			system(buildCommand);
 		}
 	}
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int idevicecrashreport()
@@ -87,12 +89,12 @@ int idevicecrashreport()
 	system("clear");
 	printf("1) Extract raw crash report into separate '.crash' file\n");
 	printf("2) Copy but do not remove crash reports from device\n");
-	scanf("%d", &choice);
+	choice = fgetn();
 
 	if (choice == 1)
 	{
 		printf("Enter the directory to copy the file : ");
-		scanf("%s", path);
+		fget(path, 1024);
 
 		sprintf(buildCommand, "idevicecrashreport -e %s", path);
 		system(buildCommand);
@@ -100,19 +102,18 @@ int idevicecrashreport()
 	if (choice == 2)
 	{
 		printf("Enter the directory to copy the file : ");
-		scanf("%s", path);
+		fget(path, 1024);
 
 		sprintf(buildCommand, "idevicecrashreport -k %s", path);
 		system(buildCommand);
 	}
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int idevicedate()
 {	
-	system("clear");
-	system("idevicedate");
-	return 0;
+	system("clear; idevicedate");
+	return EXIT_SUCCESS;
 }
 
 int idevicedebug()
@@ -123,13 +124,13 @@ int idevicedebug()
 
 	system("clear");
 	printf("Enter command : ");
-	scanf("%s", cmd);
+	fget(cmd, 1024);
 	printf("Entrer option : ");
-	scanf("%s", option);
+	fget(option, 1024);
 
 	sprintf(buildCommand, "idevicedebug -d %s %s", option, cmd);
 	system(buildCommand);
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int idevicedebugserverproxy()
@@ -139,37 +140,11 @@ int idevicedebugserverproxy()
 
 	system("clear");
 	printf("Port : ");
-	scanf("%d", &port);
+	port = fgetn();
 	sprintf(buildCommand, "idevicedebugserverproxy -d %d",port);
 	system(buildCommand);
-	return 0;
+	return EXIT_SUCCESS;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 int idevicediagnostics()
 {	
