@@ -20,7 +20,7 @@
 #include <string.h>
 #include <time.h>
 #include "easymobiletools.h"
-#include "prototypes.h"
+
 
 
 
