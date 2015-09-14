@@ -20,6 +20,7 @@
 #include <string.h>
 #include <time.h>
 #include "easymobiletools.h"
+#include "prototypes.h"
 
 
 
@@ -52,7 +53,7 @@ int main(int argc, char const *argv[])
 	printf ("20) iRecovery\n");
 	printf ("21) Options \n\n"); //I'll add some options
 	printf("Commande : ");
-	scanf ("%d", &choice);
+	choice = fgetn();
 
 	switch (choice)
 	{
@@ -78,5 +79,5 @@ int main(int argc, char const *argv[])
 		case 20 : irecovery(); break;
 		case 21 : option(); break;	
 	}
-	return (EXIT_SUCCESS);
+	return EXIT_SUCCESS;
 }
