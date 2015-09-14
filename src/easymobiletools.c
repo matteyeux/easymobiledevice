@@ -567,7 +567,7 @@ int option()
     fget(choice, 80);
     cmin(choice);
 
-    if (strcmp(choice, "yes")==0 || )
+    if (strcmp(choice, "yes")==0)
     {
     	system("sudo cp easymobiledevice /usr/local/bin/");
     }
