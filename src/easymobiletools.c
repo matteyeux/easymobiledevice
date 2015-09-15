@@ -561,7 +561,7 @@ int irecovery()
 	return EXIT_SUCCESS;
 }
  
-int option()
+int path()
 {	
 	char choice[80];
 	printf("Copy easymobiledevice in PATH (Linux & OS X only) ? : ");
@@ -635,4 +635,21 @@ int cmin(char *chain)
             chain[i]=tolower(chain[i]);
         }
     return(EXIT_SUCCESS);
+}
+
+int option()
+{
+	char option[10];
+	printf("Continue ? \n");
+	printf("1) YES\n");
+	printf("2) NO\n");
+	scanf("%s", option);
+	if (strcmp(option, "YES")==0 || strcmp(option, "yes")==0 || strcmp(option, "1")==0)
+	{
+	}
+	else if (strcmp(option, "NO")==0 || strcmp(option, "no")==0 || strcmp(option, "2")==0)
+	{
+		return 0;
+	}
+	return 0;
 }
