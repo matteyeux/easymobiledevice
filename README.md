@@ -29,9 +29,9 @@ A perl version has been already released.<br>
 
 #TODO
 
-Add some features like iFuse and other stuff in the 0.2 version.
-Add license for open source code.
-French version of the Readme
+Add some features like iFuse and other stuff in the 0.2 version.<br> 
+Add license for open source code.<br> 
+French version of the Readme<br> 
 
 #Credits
 
