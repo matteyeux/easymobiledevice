@@ -38,5 +38,5 @@ French version of the Readme<br>
 Utility developed by Mathieu Hautebas ([@matteyeux](https://twitter.com/matteyeux)).<br> 
 Thank you to libimobiledevice team to build awesome tools.<br> 
 Thank you to my friend [@Elrhk](https://twitter.com/Elro74) for these scripts.<br> 
-Thank you to [@Pwn1d](https://twitter.com/Pwn1d)for contributed by adding some functions to clean code, and some usefull things
+Thank you to [@Pwn1d](https://twitter.com/Pwn1d) for contributed by adding some functions to clean code, and some usefull things
 
