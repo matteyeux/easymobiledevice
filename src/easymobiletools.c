@@ -571,12 +571,8 @@ int option()
     if (strcmp(choice, "yes")==0)
     {
     	system("sudo cp easymobiledevice /usr/local/bin/");
-    	return EXIT_SUCCESS;
     }
-    else if(strcmp(choice, "no")==0)
-    {
-    	return EXIT_SUCCESS;
-    }
+    return EXIT_SUCCESS;
 }
 
 void nBuffer()
