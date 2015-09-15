@@ -25,7 +25,7 @@ You have to run this command :
 
 This utility works for Linux and OS X.
 A Windows version will come later this year (I hope).
-A perl version has been already released.
+A perl version has been already released.<br> 
 
 #TODO
 
@@ -35,8 +35,8 @@ French version of the Readme
 
 #Credits
 
-Utility developed by Mathieu Hautebas ([@matteyeux](https://twitter.com/matteyeux)).
-Thank you to libimobiledevice team to build awesome tools.
-Thank you to my friend [@Elrhk](https://twitter.com/Elro74) for these scripts.
+Utility developed by Mathieu Hautebas ([@matteyeux](https://twitter.com/matteyeux)).<br> 
+Thank you to libimobiledevice team to build awesome tools.<br> 
+Thank you to my friend [@Elrhk](https://twitter.com/Elro74) for these scripts.<br> 
 Thank you to [@Pwn1d](https://twitter.com/Pwn1d)for contributed by adding some functions to clean code, and some usefull things
 
