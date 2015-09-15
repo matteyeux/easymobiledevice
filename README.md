@@ -35,6 +35,8 @@ French version of the Readme
 
 #Credits
 
-Utility developed by Mathieu Hautebas (matteyeux).
+Utility developed by Mathieu Hautebas ([@matteyeux](https://twitter.com/matteyeux)).
 Thank you to libimobiledevice team to build awesome tools.
-Thank you to my friend @Elro74 for these scripts.
+Thank you to my friend [@Elrhk](https://twitter.com/Elro74) for these scripts.
+Thank you to [@Pwn1d](https://twitter.com/Pwn1d)for contributed by adding some functions to clean code, and some usefull things
+
