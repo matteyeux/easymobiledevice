@@ -5,7 +5,7 @@
 Easymobiledevice is a command line interface to help you to use easier libimobiledevice.
 I've already release a Perl script for Easymobiledevice, but it's in French, I'll translate it soon.
 
-Before executing this programm you'll need to install libimobiledevice.
+Before executing this program you'll need to install libimobiledevice.
 Your can use @Elro74's scripts which installs dependencies and compile it automaticly.
 I added these scripts to the project.
 
