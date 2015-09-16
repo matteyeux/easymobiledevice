@@ -6,7 +6,7 @@ Easymobiledevice is a command line interface to help you to use easier libimobil
 I've already release a Perl script for Easymobiledevice, but it's in French, I'll translate it soon.
 
 Before executing this programm you'll need to install libimobiledevice.
-Your can use @Elro74's scripts which install dependencies and compile it automaticly.
+Your can use @Elro74's scripts which installs dependencies and compile it automaticly.
 I added these scripts to the project.
 
 If you need some help contact me on Twitter : matteyeux
@@ -36,7 +36,7 @@ French version of the Readme<br>
 #Credits
 
 Utility developed by Mathieu Hautebas ([@matteyeux](https://twitter.com/matteyeux)).<br> 
-Thank you to libimobiledevice team to build awesome tools.<br> 
-Thank you to my friend [@Elrhk](https://twitter.com/Elro74) for these scripts.<br> 
-Thank you to [@Pwn1d](https://twitter.com/Pwn1d) for contributed by adding some functions to clean code, and some usefull things
+Thanks to libimobiledevice team to build awesome tools.<br> 
+Thanks to my friend [@Elrhk](https://twitter.com/Elro74) for these scripts.<br> 
+Thanks to [@Pwn1d](https://twitter.com/Pwn1d) for contributed by adding some functions to clean code, and some usefull things
 
