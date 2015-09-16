@@ -1,4 +1,4 @@
-#Easymobiledevice 0.1
+#Easymobiledevice 0.4
 
 === ENGLISH ===
 
