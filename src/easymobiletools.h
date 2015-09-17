@@ -23,10 +23,7 @@ int path();
 int fgetn();
 void nBuffer();
 int fget(char *chain, int sizee);
-int cmin(char *chain);
 float fgetf();
-<<<<<<< HEAD
-int strmcmp();
-=======
+int cmin(char *chain);
 
->>>>>>> origin/master
+

@@ -12,12 +12,12 @@ int ideviceactivation()
 	printf("1) Activate\n");
 	printf("2) Deactivate\n");
 	fget(choice, 80);
-	if (strmcmp(choice, "activate")==0 || strmcmp(choice, "1")==0)
+	if (strcmp(choice, "activate")==0 || strcmp(choice, "1")==0)
 	{	
 		printf("Activation\n");
 		system("ideviceactivation activate");
 	}
-	if (strmcmp(choice, "deactivate")==0 || strmcmp(choice, "2")==0)
+	if (strcmp(choice, "deactivate")==0 || strcmp(choice, "2")==0)
 	{
 		printf("Desactivation\n");
 		system("ideviceactivation deactivate");
@@ -43,14 +43,14 @@ int idevicebackup ()
 	{
 		printf("Your iOS version is less than iOS 4.\n");
 
-		if (strmcmp(choice, "backup")==0 || strmcmp(choice, "1")==0)
+		if (strcmp(choice, "backup")==0 || strcmp(choice, "1")==0)
 		{
 			printf("Enter the directory to copy the backup : ");
 			fget(path, 120);
 			sprintf(buildCommand, "idevicebackup backup %s", path);
 			system(buildCommand);
 		}
-		if (strmcmp(choice, "restore backup")==0 || strmcmp(choice, "2")==0)
+		if (strcmp(choice, "restore backup")==0 || strcmp(choice, "2")==0)
 		{
 			printf("Enter the directory to the backup : ");
 			fget(path, 120);
@@ -63,14 +63,14 @@ int idevicebackup ()
 	{
 		printf("Your iOS version is lower than iOS 4.\n");
 
-		if (strmcmp(choice, "backup")==0 || strmcmp(choice, "1")==0)
+		if (strcmp(choice, "backup")==0 || strcmp(choice, "1")==0)
 		{
 			printf("Enter the directory to copy the backup : ");
 			fget(path, 120);
 			sprintf(buildCommand, "idevicebackup2 backup %s", path);
 			system(buildCommand);
 		}
-		if (strmcmp(choice, "restore")==0 || strmcmp(choice, "2")==0)
+		if (strcmp(choice, "restore")==0 || strcmp(choice, "2")==0)
 		{
 			printf("Enter the directory to the backup : ");
 			fget(path, 120);
@@ -92,7 +92,7 @@ int idevicecrashreport()
 	printf("2) Copy but do not remove crash reports from device\n");
 	fget(choice, 80);
 
-	if (strmcmp(choice, "extract")==0 || strmcmp(choice, "1")==0)
+	if (strcmp(choice, "extract")==0 || strcmp(choice, "1")==0)
 	{
 		printf("Enter the directory to copy the file : ");
 		fget(path, 1024);
@@ -100,7 +100,7 @@ int idevicecrashreport()
 		sprintf(buildCommand, "idevicecrashreport -e %s", path);
 		system(buildCommand);
 	}
-	if (strmcmp(choice, "copy")==0 || strmcmp(choice, "2")==0)
+	if (strcmp(choice, "copy")==0 || strcmp(choice, "2")==0)
 	{
 		printf("Enter the directory to copy the file : ");
 		fget(path, 1024);
@@ -161,38 +161,38 @@ int idevicediagnostics()
 	printf("6) Put device into sleep mode\n");
 	fget(choice, 80);
 
-	if (strmcmp(choice, "diagnostics")==0 || strmcmp(choice, "1")==0)
+	if (strcmp(choice, "diagnostics")==0 || strcmp(choice, "1")==0)
 	{
 		printf("Enter the type of the command : ");
 		fget(cmd, 80);
 		sprintf(buildCommand, "idevicediagnostics diagnostics -d %s", cmd);
 		system(buildCommand);
 	}
-	if (strmcmp(choice, "mobilegestalt")==0 || strmcmp(choice, "2")==0)
+	if (strcmp(choice, "mobilegestalt")==0 || strcmp(choice, "2")==0)
 	{
 		printf("Enter the keys : ");
 		fget(cmd, 80);
 		sprintf(buildCommand, "idevicediagnostics mobilegestalt -d KEY %s", cmd);
 		system(buildCommand);
 	}
-	if (strmcmp(choice, "ioreg")==0 || strmcmp(choice, "3")==0)
+	if (strcmp(choice, "ioreg")==0 || strcmp(choice, "3")==0)
 	{
 		printf("Enter command : ");
 		fget(cmd, 80);
 		sprintf(buildCommand, "idevicediagnostics ioreg %s", cmd);
 		system(buildCommand);
 	}
-	if (strmcmp(choice, "shutdown")==0 || strmcmp(choice, "4")==0)
+	if (strcmp(choice, "shutdown")==0 || strcmp(choice, "4")==0)
 	{
 		printf("The device will shutdown...\n");
 		system("idevicediagnostics shutdown");
 	}
-	if (strmcmp(choice, "restart")==0 || strmcmp(choice, "5")==0)
+	if (strcmp(choice, "restart")==0 || strcmp(choice, "5")==0)
 	{
 		printf("The device will restart...\n");
 		system("idevicediagnostics restart");
 	}
-	if (strmcmp(choice, "sleep")==0 || strmcmp(choice, "6")==0)
+	if (strcmp(choice, "sleep")==0 || strcmp(choice, "6")==0)
 	{
 		printf("Putting device into sleep mode...\n");
 		system("idevicediagnostics sleep");
@@ -260,66 +260,66 @@ int ideviceinstaller()
 
 	fget(choice, 80);
 
-	if (strmcmp(choice, "list")==0 || strmcmp(choice, "1")==0)
+	if (strcmp(choice, "list")==0 || strcmp(choice, "1")==0)
 	{	
 		printf("1) Mobile apps\n");
 		printf("2) System apps\n");
 		printf("3) All apps\n");
 		fget(apps, 120);
 
-		if (strmcmp(apps, "mobile")==0 || strmcmp(apps, "1")==0)
+		if (strcmp(apps, "mobile")==0 || strcmp(apps, "1")==0)
 		{
 			system("ideviceinstaller -l -o list_user");
 		}
-		if (strmcmp(apps, "system")==0 || strmcmp(apps, "2")==0)
+		if (strcmp(apps, "system")==0 || strcmp(apps, "2")==0)
 		{
 			system("ideviceinstaller -l -o list_system");
 		}
-		if (strmcmp(apps, "all")==0 || strmcmp(apps, "3")==0)
+		if (strcmp(apps, "all")==0 || strcmp(apps, "3")==0)
 		{
 			system("ideviceinstaller -l -o list_all");
 		}
 	}
-	if (strmcmp(choice, "install")==0 || strmcmp(choice, "2")==0)
+	if (strcmp(choice, "install")==0 || strcmp(choice, "2")==0)
 	{
 		printf("Enter the directory from the archive : ");
 		fget(path, 120);
 		sprintf(buildCommand, "ideviceinstaller -i %s",path);
 		system(buildCommand);
 	}
-	if (strmcmp(choice, "uninstall")==0 || strmcmp(choice, "3")==0)
+	if (strcmp(choice, "uninstall")==0 || strcmp(choice, "3")==0)
 	{	
 		printf("Enter APPID to uninstall : ");
 		fget(appid, 80);
 		sprintf(buildCommand,"ideviceinstaller -U %s", appid);
 		system(buildCommand);
 	}
-	if (strmcmp(choice, "upgrade")==0 || strmcmp(choice, "4")==0)
+	if (strcmp(choice, "upgrade")==0 || strcmp(choice, "4")==0)
 	{
 		printf("Enter archive to upgrade : ");
 		fget(appid, 80);
 		sprintf(buildCommand, "ideviceinstaller -g %s", appid);
 		system(buildCommand);		
 	}
-	if (strmcmp(choice, "list archive")==0 || strmcmp(choice, "5")==0)
+	if (strcmp(choice, "list archive")==0 || strcmp(choice, "5")==0)
 	{
 		system("ideviceinstaller -L");
 	}
-	if (strmcmp(choice, "archive")==0 || strmcmp(choice, "6")==0)
+	if (strcmp(choice, "archive")==0 || strcmp(choice, "6")==0)
 	{
 		printf("This command will uninstall the package after making an archive, enter the APPID : ");
 		fget(appid, 80);
 		sprintf(buildCommand, "ideviceinstaller -a uninstall %s", appid);
 		system(buildCommand);
 	}
-	if (strmcmp(choice, "restore")==0 || strmcmp(choice, "7")==0)
+	if (strcmp(choice, "restore")==0 || strcmp(choice, "7")==0)
 	{
 		printf("Restore archived app specified by APPID, enter APPID : ");
 		fget(appid, 80);
 		sprintf(buildCommand, "ideviceinstaller -r %s", appid);
 		system(buildCommand);
 	}
-	if (strmcmp(choice, "remove")==0 || strmcmp(choice, "8")==0)
+	if (strcmp(choice, "remove")==0 || strcmp(choice, "8")==0)
 	{
 		printf("Remove app archive specified by APPID, enter the APPID : ");
 		fget(appid, 80);
@@ -338,20 +338,20 @@ int idevicename()
 
 int idevicenotificationproxy ()
 {	
-	int choice;
+	char choice[80];
 	int ID;
 	char buildCommand[1024];
 	printf("1) POST ID\n");
 	printf("2) Observe ID\n");
-	choice = fgetn();
-	if (strmcmp(choice, "post")==0 || strmcmp(choice, "1")==0)
+	fget(choice, 80);
+	if (strcmp(choice, "post")==0 || strcmp(choice, "1")==0)
 	{
 		printf("ID : ");
 		ID = fgetn();
 		sprintf(buildCommand, "idevicenotificationproxy -d post %d", ID);
 		system(buildCommand);
 	}
-	if (strmcmp(choice, "observe")==0 || strmcmp(choice, "2")==0)
+	if (strcmp(choice, "observe")==0 || strcmp(choice, "2")==0)
 	{
 		printf("ID : ");
 		ID = fgetn();
@@ -368,15 +368,15 @@ int idevicepair()
 	printf("2) Unpair\n");
 	printf("3) List devices paired with this host\n");
 	fget(choice, 80);
-	if (strmcmp(choice, "pair")==0 || strmcmp(choice, "1")==0)
+	if (strcmp(choice, "pair")==0 || strcmp(choice, "1")==0)
 	{
 		system("idevicepair pair");
 	}
-	if (strmcmp(choice, "unpair")==0 || strmcmp(choice, "2")==0)
+	if (strcmp(choice, "unpair")==0 || strcmp(choice, "2")==0)
 	{
 		system("idevicepair unpair");
 	}
-	if (strmcmp(choice, "list")==0 || strmcmp(choice, "3")==0)
+	if (strcmp(choice, "list")==0 || strcmp(choice, "3")==0)
 	{
 		system("idevicepair list");
 	}
@@ -397,32 +397,32 @@ int ideviceprovision() /////////////////////////////////////////////////////////
 	printf("5) Display informations about a profile\n");
 	fget(choice, 80);
 
-	if (strmcmp(choice, "install")==0 || strmcmp(choice, "1")==0)
+	if (strcmp(choice, "install")==0 || strcmp(choice, "1")==0)
 	{
 		printf("Enter the directory to the file : ");
 		fget(path, 1024);
 		sprintf(buildCommand, "ideviceprovision install %s", path);
 		system(buildCommand);
 	}
-	if (strmcmp(choice, "list")==0 || strmcmp(choice, "2")==0)
+	if (strcmp(choice, "list")==0 || strcmp(choice, "2")==0)
 	{
 		system("ideviceprovision list");
 	}										
-	if (strmcmp(choice, "copy")==0 || strmcmp(choice, "3")==0)
+	if (strcmp(choice, "copy")==0 || strcmp(choice, "3")==0)
 	{
 		printf("Enter the directory to copy the files : ");
 		fget(path, 1024);
 		sprintf(buildCommand, "ideviceprovision copy %s", path);
 		system(buildCommand);
 	}
-	if (strmcmp(choice, "remove")==0 || strmcmp(choice, "4")==0)
+	if (strcmp(choice, "remove")==0 || strcmp(choice, "4")==0)
 	{
 		printf("Enter the UUID of the profile : ");
 		fget(UUID, 80);
 		sprintf(buildCommand, "ideviceprovision remove %s", UUID);
 		system(buildCommand);
 	}
-	if (strmcmp(choice, "display")==0 || strmcmp(choice, "5")==0)
+	if (strcmp(choice, "display")==0 || strcmp(choice, "5")==0)
 	{
 		printf("Enter the directory to the file to dump : ");
 		fget(path, 1024);
@@ -456,13 +456,13 @@ int idevicerestore()
 	printf("3) Restore using a Custom Firmware\n");
 	fget(choice, 80);
 
-	if (strmcmp(choice, "keep")==0 || strmcmp(choice, "1")==0)
+	if (strcmp(choice, "keep")==0 || strcmp(choice, "1")==0)
 	{
 		printf("Do you want to use an IPSW file ?\n");
 		printf("1) YES\n");
 		printf("2° NO\n");
 		fget(choice, 10);
-		if (strmcmp(choice, "yes")==0 || strmcmp(choice, "1")==0)
+		if (strcmp(choice, "yes")==0 || strcmp(choice, "1")==0)
 		{
 			printf("Enter the directory to the file : ");
 			fget(path, 1024);
@@ -477,13 +477,13 @@ int idevicerestore()
 		}
 
 	}
-	if (strmcmp(choice, "restore")==0 || strmcmp(choice, "2")==0)
+	if (strcmp(choice, "restore")==0 || strcmp(choice, "2")==0)
 	{
 		printf("Do you have an ipsw ?\n");
 		printf("1) Yes i've got an ipsw.\n");
 		printf("2) No, please download the ipsw file.\n");
 		fget(ipsw, 80);
-		if (strmcmp(ipsw, "yes")==0 || strmcmp(ipsw, "1")==0)
+		if (strcmp(ipsw, "yes")==0 || strcmp(ipsw, "1")==0)
 		{	
 			printf("Enter the directory to the file : ");
 			fget(path, 1024);
@@ -491,12 +491,12 @@ int idevicerestore()
 			printf("%s\n",buildCommand);
 			system(buildCommand);
 		}
-		if (strmcmp(ipsw, "no")==0 || strmcmp(ipsw, "2")==0)
+		if (strcmp(ipsw, "no")==0 || strcmp(ipsw, "2")==0)
 		{
 			system("idevicerestore -d  -e -l");
 		}
 	}
-	if (strmcmp(choice, "custom")==0 || strmcmp(choice, "3")==0)
+	if (strcmp(choice, "custom")==0 || strcmp(choice, "3")==0)
 	{
 		printf("Enter the directory to the file : ");
 		fget(path, 1024);
@@ -528,33 +528,33 @@ int irecovery()
 	printf("4) Execute recovery script\n");
 	printf("5) Start an interactive shell\n");
 	fget(choice, 80);
-	if (strmcmp(choice, "send file")==0 || strmcmp(choice, "1")==0)
+	if (strcmp(choice, "send file")==0 || strcmp(choice, "1")==0)
 	{
 		printf("Enter the directory to the file : ");
 		fget(path, 1024);
 		sprintf(buildCommand, "sudo irecovery -f %s", path);
 		system(buildCommand);
 	}
-	if (strmcmp(choice, "send payload")==0 || strmcmp(choice, "2")==0)
+	if (strcmp(choice, "send payload")==0 || strcmp(choice, "2")==0)
 	{
 		printf("Entrer the directory to the file : ");
 		fget(path, 1024);
 		sprintf(buildCommand, "sudo irecovery -k %s", path);
 		system(buildCommand);
 	}
-	if (strmcmp(choice, "reboot")==0 || strmcmp(choice, "3")==0)
+	if (strcmp(choice, "reboot")==0 || strcmp(choice, "3")==0)
 	{
 		printf("The device will exit recovery loop...\n");
 		system("sudo irecovery -n");
 	}
-	if (strmcmp(choice, "execute")==0 || strmcmp(choice, "4")==0)
+	if (strcmp(choice, "execute")==0 || strcmp(choice, "4")==0)
 	{
 		printf("Enter the directory to the file : ");
 		fget(path, 1024);
 		sprintf(buildCommand, "sudo irecovery -e %s", path);
 		system(buildCommand);
 	}
-	if (strmcmp(choice, "shell")==0 || strmcmp(choice, "5")==0)
+	if (strcmp(choice, "shell")==0 || strcmp(choice, "5")==0)
 	{
 		system("sudo irecovery -s");
 	}
@@ -568,12 +568,12 @@ int path()
     fget(choice, 80);
     cmin(choice);
 
-    if (strmcmp(choice, "yes")==0)
+    if (strcmp(choice, "yes")==0)
     {
     	system("sudo cp easymobiledevice /usr/local/bin/");
     	return EXIT_SUCCESS;
     }
-    else if(strmcmp(choice, "no")==0)
+    else if(strcmp(choice, "no")==0)
     {
     	return EXIT_SUCCESS;
     }
@@ -644,27 +644,12 @@ int option()
 	printf("1) YES\n");
 	printf("2) NO\n");
 	scanf("%s", option);
-	if (strmcmp(option, "YES")==0 || strmcmp(option, "yes")==0 || strmcmp(option, "1")==0)
+	if (strcmp(option, "YES")==0 || strcmp(option, "yes")==0 || strcmp(option, "1")==0)
 	{
 	}
-	else if (strmcmp(option, "NO")==0 || strmcmp(option, "no")==0 || strmcmp(option, "2")==0)
+	else if (strcmp(option, "NO")==0 || strcmp(option, "no")==0 || strcmp(option, "2")==0)
 	{
 		return 0;
 	}
 	return 0;
-}
-
-int strmcmp(char chain1, char chain2)
-{
-    cmin(chain1);
-    cmin(chain2);
-    if (strcmp(chain1, chain2)== 0)
-    {
-        return 0;
-    }
-    else if (strcmp(chain1, chain2)== 1)
-    {
-        return 1;
-    }
-    return EXIT_FAILURE;
 }
