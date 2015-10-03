@@ -11,18 +11,6 @@ I added these scripts to the project.
 
 If you need some help contact me on Twitter : matteyeux
  
-### For Linux
-You have to run these commands :
-
-chmod +x apt-get.sh <br>
- `./apt-get.sh` <br>
-`./autobuild.sh` <br>
-
-### For MAC OS X
-You have to run this command : 
-
-`./brew.sh``
-
 This utility works for Linux and OS X.
 A Windows version will come later this year (I hope).
 A perl version has been already released.<br> 
@@ -38,5 +26,5 @@ French version of the Readme<br>
 Utility developed by Mathieu Hautebas ([@matteyeux](https://twitter.com/matteyeux)).<br> 
 Thanks to libimobiledevice team to build awesome tools.<br> 
 Thanks to my friend [@Elrhk](https://twitter.com/Elro74) for these scripts.<br> 
-Thanks to [@Pwn1d](https://twitter.com/Pwn1d) for contributed by adding some functions to clean code, and some usefull things
+Thanks to Lilo Colson[@Pwn1d](https://twitter.com/Pwn1d) for contributed by adding some functions to clean code, and some useful things
 
