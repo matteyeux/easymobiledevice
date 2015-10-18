@@ -23,6 +23,9 @@
 int main(int argc, char const *argv[])
 {	
 	int choice;
+	int i;
+	char option[10];
+	
 	while (1)
 	{
 		system("clear");
@@ -73,11 +76,19 @@ int main(int argc, char const *argv[])
 			case 19 : idevicesyslog(); break;
 			case 20 : irecovery(); break;
 
-			default : printf("Bad option :(\n");
+			default : printf("\nBad option :(\n"); break;
 		}
-		option();
+		
+		printf("\nContinue ?\n1) YES\n2) NO\n");
+		fget(option, 10);
+		//scanf("%s", option);
+		if (strcmp(option, "YES")==0 || strcmp(option, "yes")==0 || strcmp(option, "1")==0)
+		{
+		}
+		else if (strcmp(option, "NO")==0 || strcmp(option, "no")==0 || strcmp(option, "2")==0)
+		{
+			return 0; 
+		}
 	}
-
-
-	return EXIT_SUCCESS;
+	return 0;
 }

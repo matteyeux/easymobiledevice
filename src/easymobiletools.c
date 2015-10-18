@@ -27,58 +27,55 @@ int ideviceactivation()
 
 int idevicebackup ()
 {	
-	char choice[80];
+	char choice[20];
 	float version;
+	char rep[20];
 	char path[120];
 	char buildCommand[1024];
 
 	system("clear");
 	printf("1) Backup\n");
 	printf("2) Restore backup\n");
-	fget(choice, 80);
-	printf("iOS version : ");
-	version = fgetf();
+	fget(choice, 20);
 
-	if (version < 4)
+	if (strcmp(choice, "backup")==0 || strcmp(choice, "1")==0)
 	{
-		printf("Your iOS version is less than iOS 4.\n");
-
-		if (strcmp(choice, "backup")==0 || strcmp(choice, "1")==0)
+		printf("Is your iOS version less than iOS 4 ?\n1) YES\n2) NO\n");
+		fget(rep, 20);
+		if (strcmp(rep, "yes")==0 ||strcmp(rep, "YES")==0 || strcmp(rep, "1")==0)
 		{
 			printf("Enter the directory to copy the backup : ");
 			fget(path, 120);
 			sprintf(buildCommand, "idevicebackup backup %s", path);
 			system(buildCommand);
 		}
-		if (strcmp(choice, "restore backup")==0 || strcmp(choice, "2")==0)
-		{
-			printf("Enter the directory to the backup : ");
-			fget(path, 120);
-			sprintf(buildCommand, "idevicebackup restore %s", path);
-			system(buildCommand);
-		}
-
-	}
-	else 
-	{
-		printf("Your iOS version is lower than iOS 4.\n");
-
-		if (strcmp(choice, "backup")==0 || strcmp(choice, "1")==0)
+		else
 		{
 			printf("Enter the directory to copy the backup : ");
 			fget(path, 120);
 			sprintf(buildCommand, "idevicebackup2 backup %s", path);
-			system(buildCommand);
-		}
-		if (strcmp(choice, "restore")==0 || strcmp(choice, "2")==0)
+			system(buildCommand);	
+		} 
+	}
+	if (strcmp(choice, "restore")==0 || strcmp(choice, "2")==0)
+	{
+		printf("Is your iOS version less than iOS 4 ?\n1) YES\n2) NO\n");
+		fget(rep, 20);
+		if (strcmp(rep, "yes")==0 ||strcmp(rep, "YES")==0 || strcmp(rep, "1")==0)
 		{
 			printf("Enter the directory to the backup : ");
 			fget(path, 120);
 			sprintf(buildCommand, "idevicebackup restore %s", path);
 			system(buildCommand);
 		}
+		else
+		{
+			printf("Enter the directory to the backup : ");
+			fget(path, 120);
+			sprintf(buildCommand, "idevicebackup2 restore %s", path);
+			system(buildCommand);	
+		}
 	}
-	return EXIT_SUCCESS;
 }
 
 int idevicecrashreport()
@@ -113,7 +110,7 @@ int idevicecrashreport()
 
 int idevicedate()
 {	
-	system("clear; idevicedate");
+	system("idevicedate");
 	return EXIT_SUCCESS;
 }
 
@@ -635,21 +632,4 @@ int cmin(char *chain)
             chain[i]=tolower(chain[i]);
         }
     return(EXIT_SUCCESS);
-}
-
-int option()
-{
-	char option[10];
-	printf("Continue ? \n");
-	printf("1) YES\n");
-	printf("2) NO\n");
-	scanf("%s", option);
-	if (strcmp(option, "YES")==0 || strcmp(option, "yes")==0 || strcmp(option, "1")==0)
-	{
-	}
-	else if (strcmp(option, "NO")==0 || strcmp(option, "no")==0 || strcmp(option, "2")==0)
-	{
-		return 0;
-	}
-	return 0;
 }
