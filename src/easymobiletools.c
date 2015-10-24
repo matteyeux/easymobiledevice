@@ -620,7 +620,7 @@ int fgetn()
 float fgetf()
 {
 	char chain[64];
-	fgetf(chain, 64);
+	fget(chain, 64);
 	return atof(chain);
 }
 
