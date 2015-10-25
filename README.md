@@ -13,7 +13,21 @@ If you need some help contact me on Twitter : matteyeux
  
 This utility works for Linux and OS X.
 A Windows version will come later this year (I hope).
-A perl version has been already released.<br> 
+A perl version has been already released.<br>
+
+#Installing libimobiledevice
+You can easily install libimobile using Elrhk's scripts in the installer folder.
+
+###Linux 
+`chmod +x && ./apt-get.sh`
+then `./autobuild.sh`
+
+###OS X
+
+`./brew.sh`
+then `./autobuild.sh` 
+
+Maybe you'll have to fixe the script at your own. <br>
 
 #TODO
 

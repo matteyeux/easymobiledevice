@@ -633,3 +633,16 @@ int cmin(char *chain)
         }
     return(EXIT_SUCCESS);
 }
+int option()
+{	
+	char options[10];
+	printf("\nContinue ?\n1) YES\n2) NO\n");
+	fget(options, 10);
+	if (strcmp(options, "YES")==0 || strcmp(options, "yes")==0 || strcmp(options, "1")==0)
+	{
+	}
+	else if (strcmp(options, "NO")==0 || strcmp(options, "no")==0 || strcmp(options, "2")==0)
+	{
+		return 0; 
+	}
+}

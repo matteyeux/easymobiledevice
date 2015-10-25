@@ -19,7 +19,7 @@ int idevicescreenshot();
 int idevicesyslog();
 int irecovery();
 int path();
-
+int option(); //ici
 int fgetn();
 void nBuffer();
 int fget(char *chain, int sizee);

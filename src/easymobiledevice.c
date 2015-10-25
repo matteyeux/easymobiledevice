@@ -23,7 +23,6 @@
 int main(int argc, char const *argv[])
 {	
 	int choice;
-	int i;
 	char option[10];
 	
 	while (1)
@@ -81,7 +80,6 @@ int main(int argc, char const *argv[])
 		
 		printf("\nContinue ?\n1) YES\n2) NO\n");
 		fget(option, 10);
-		//scanf("%s", option);
 		if (strcmp(option, "YES")==0 || strcmp(option, "yes")==0 || strcmp(option, "1")==0)
 		{
 		}
