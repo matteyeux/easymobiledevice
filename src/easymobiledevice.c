@@ -26,8 +26,11 @@ int main(int argc, char const *argv[])
 	char option[10];
 	
 	while (1)
-	{
+	{	
 		system("clear");
+		#ifdef _WIN32
+		system("cls");
+		#endif
 		printf("Choose an option\n");
 		printf (" 1) ideviceactivation\n");
 		printf (" 2) idevicebackup\n");
