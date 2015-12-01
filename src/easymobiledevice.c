@@ -31,7 +31,7 @@ int main(int argc, char const *argv[])
 		#ifdef _WIN32
 		system("cls");
 		#endif
-		printf("Choose an option\n");
+		printf("Choose command\n");
 		printf (" 1) ideviceactivation\n");
 		printf (" 2) idevicebackup\n");
 		printf (" 3) idevicecrashreport\n");
