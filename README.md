@@ -19,7 +19,7 @@ A perl version has been already released.<br>
 You can easily install libimobile using Elrhk's scripts in the installer folder.
 
 ###Linux 
-`chmod +x && ./apt-get.sh`
+`chmod +x apt-get.sh && ./apt-get.sh`
 then `./autobuild.sh`
 
 ###OS X
