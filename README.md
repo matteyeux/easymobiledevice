@@ -40,5 +40,5 @@ French version of the Readme<br>
 Utility developed by Mathieu Hautebas ([@matteyeux](https://twitter.com/matteyeux)).<br> 
 Thanks to libimobiledevice team to build awesome tools.<br> 
 Thanks to my friend [@Elrhk](https://twitter.com/Elro74) for these scripts.<br> 
-Thanks to Lilo Colson[@Pwn1d](https://twitter.com/Pwn1d) for contributed by adding some functions to clean code, and some useful things
+Thanks to Lilo Colson[@Pwn1d](https://twitter.com/Pwn1d) for contributed by adding some functions to clean code.
 
