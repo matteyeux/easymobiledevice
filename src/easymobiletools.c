@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <time.h>
 #include "easymobiletools.h"
 
 int ideviceactivation()
@@ -380,7 +381,7 @@ int idevicepair()
 	return EXIT_SUCCESS;
 }
 
-int ideviceprovision() /////////////////////////////////////////////////////////////////////
+int ideviceprovision()
 {	
 	char choice[80];
 	char buildCommand[1024];
@@ -461,7 +462,7 @@ int idevicerestore()
 		fget(choice, 10);
 		if (strcmp(choice, "yes")==0 || strcmp(choice, "1")==0)
 		{
-			printf("Enter the directory to the file : ");
+			printf("Drag IPSW here : ");
 			fget(path, 1024);
 			sprintf(buildCommand, "idevicerestore -d %s", path);
 			printf("%s\n",buildCommand);
@@ -477,12 +478,12 @@ int idevicerestore()
 	if (strcmp(choice, "restore")==0 || strcmp(choice, "2")==0)
 	{
 		printf("Do you have an ipsw ?\n");
-		printf("1) Yes i've got an ipsw.\n");
+		printf("1) Yes\n");
 		printf("2) No, please download the ipsw file.\n");
 		fget(ipsw, 80);
 		if (strcmp(ipsw, "yes")==0 || strcmp(ipsw, "1")==0)
 		{	
-			printf("Enter the directory to the file : ");
+			printf("Drag IPSW here : ");
 			fget(path, 1024);
 			sprintf(buildCommand, "idevicerestore -d -e %s", path);
 			printf("%s\n",buildCommand);
@@ -495,7 +496,7 @@ int idevicerestore()
 	}
 	if (strcmp(choice, "custom")==0 || strcmp(choice, "3")==0)
 	{
-		printf("Enter the directory to the file : ");
+		printf("Drag custom IPSW here : ");
 		fget(path, 1024);
 		sprintf(buildCommand, "idevicerestore -d -c %s", path);
 		system(buildCommand);
@@ -506,8 +507,16 @@ int idevicerestore()
 
 int idevicesyslog()
 {	
+	int i;
 	system("clear");
-	printf("Press Ctrl + C to stop the process\n");
+	for (i=3; i > 0; i--)
+	{
+		printf("\npress ctrl + c to abort syslog\n");
+		printf("begin in %d sec\n",i);
+		sleep (1);
+		system("clear");
+		
+	}
 	system("idevicesyslog");
 	return EXIT_SUCCESS;
 }
