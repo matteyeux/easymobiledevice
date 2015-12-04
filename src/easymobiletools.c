@@ -458,7 +458,7 @@ int idevicerestore()
 	{
 		printf("Do you want to use an IPSW file ?\n");
 		printf("1) YES\n");
-		printf("2° NO\n");
+		printf("2) NO\n");
 		fget(choice, 10);
 		if (strcmp(choice, "yes")==0 || strcmp(choice, "1")==0)
 		{
@@ -473,13 +473,13 @@ int idevicerestore()
 			printf("Restoring with the latest signed iOS firmware...\n");
 			system("idevicerestore -d -l");
 		}
-
 	}
 	if (strcmp(choice, "restore")==0 || strcmp(choice, "2")==0)
 	{
 		printf("Do you have an ipsw ?\n");
-		printf("1) Yes\n");
-		printf("2) No, please download the ipsw file.\n");
+		printf("1) YES\n");
+		printf("2) NO\n");
+
 		fget(ipsw, 80);
 		if (strcmp(ipsw, "yes")==0 || strcmp(ipsw, "1")==0)
 		{	
