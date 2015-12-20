@@ -566,27 +566,8 @@ int irecovery()
 	}
 	return EXIT_SUCCESS;
 }
- 
-int path()
-{	
-	char choice[80];
-	printf("Copy easymobiledevice in PATH (Linux & OS X only) ? : ");
-    fget(choice, 80);
-    cmin(choice);
-
-    if (strcmp(choice, "yes")==0)
-    {
-    	system("sudo cp easymobiledevice /usr/local/bin/");
-    	return EXIT_SUCCESS;
-    }
-    else if(strcmp(choice, "no")==0)
-    {
-    	return EXIT_SUCCESS;
-    }
-}
 
 void nBuffer()
-
 {
    int c;
    while (c != '\n' && c != EOF)
@@ -596,7 +577,6 @@ void nBuffer()
 }
 
 int fget(char *chain, int sizee)
-
 {
    char *charn = NULL;
    if (fgets(chain, sizee, stdin) != NULL)
@@ -641,17 +621,4 @@ int cmin(char *chain)
             chain[i]=tolower(chain[i]);
         }
     return(EXIT_SUCCESS);
-}
-int option()
-{	
-	char options[10];
-	printf("\nContinue ?\n1) YES\n2) NO\n");
-	fget(options, 10);
-	if (strcmp(options, "YES")==0 || strcmp(options, "yes")==0 || strcmp(options, "1")==0)
-	{
-	}
-	else if (strcmp(options, "NO")==0 || strcmp(options, "no")==0 || strcmp(options, "2")==0)
-	{
-		return 0; 
-	}
 }
