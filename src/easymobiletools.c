@@ -530,7 +530,7 @@ int irecovery()
 	system("clear");
 	printf("1) Send file to device \n");
 	printf("2) Send limera1n USB exploit payload\n");
-	printf("3) Reboot device into normal mode\n");
+	printf("3) Exit Recovery mode (Doesn't work on Windows)\n");
 	printf("4) Execute recovery script\n");
 	printf("5) Start an interactive shell\n");
 	fget(choice, 80);
