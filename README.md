@@ -13,19 +13,8 @@ For windows you have to download [Libimobiledevice for Windows](https://github.c
 If you need some help contact me on Twitter : matteyeux
 
 #Installing libimobiledevice
-You can easily install libimobiledevice using DevJam's scripts in the installer folder.
 
-###Linux 
-cd to the installer directory. <br>
-`chmod +x apt-get.sh && ./apt-get.sh`
-then `./autobuild.sh`
-
-###OS X
-
-`./brew.sh`
-then `./autobuild.sh` 
-
-Maybe you'll have to fixe the script at your own. <br>
+I've modified Dev__Jam's scripts. You can now run `libinstaller.sh` for OS X & Linux, the script will automaticaly build Libimobiledevice for your Operating System <br>
 
 #Credits
 
