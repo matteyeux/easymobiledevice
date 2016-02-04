@@ -3,8 +3,9 @@
 #
 #  Project......: libinstaller.sh
 #  Creator......: matteyeux
-#  Description..: Script to install libimobiledevice
-#  Type.........: Private
+#  Description..: Script to install libimobiledevice 
+#  Original script by @Dev__Jam, I improved it
+#  Type.........: Public
 #
 ######################################################################
 # Language :
@@ -19,6 +20,7 @@
 #   ---------------------------------------------------------------
 #    27/12/15 | Mathieu Hautebas   | Script creation
 #   ---------------------------------------------------------------
+#  
 
 function apt-get(){
 	sudo apt-get install -y git
