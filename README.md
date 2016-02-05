@@ -14,7 +14,7 @@ If you need some help contact me on Twitter : matteyeux
 
 #Installing libimobiledevice
 
-I've modified Dev__Jam's scripts. You can now run `libinstaller.sh` for OS X & Linux, the script will automaticaly build Libimobiledevice for your Operating System <br>
+I've modified Dev__Jam's scripts. You can now run `library-iphone.sh` for OS X & Linux, the script will automaticaly build Libimobiledevice for your Operating System <br>
 
 #Credits
 
