@@ -13,13 +13,9 @@ For windows you have to download [Libimobiledevice for Windows](https://github.c
 If you need some help contact me on Twitter : matteyeux
 
 #Installing libimobiledevice
-
-<<<<<<< HEAD
 Here are the originals sources of [autobuild.sh](https://github.com/Keyaku/OpenJailbreak/blob/master/autobuild.sh) & [brew.sh](https://github.com/mathiasbynens/dotfiles/blob/master/brew.sh)
-=======
-I've modified Dev__Jam's scripts. You can now run `library-iphone.sh` for OS X & Linux, the script will automaticaly build Libimobiledevice for your Operating System <br>
+You can now run `library-iphone.sh` for OS X & Linux, the script will automaticaly build Libimobiledevice for your Operating System <br>
 
->>>>>>> origin/master
 #Credits
 
 Utility developed by Mathieu Hautebas ([@matteyeux](https://twitter.com/matteyeux)).<br> 

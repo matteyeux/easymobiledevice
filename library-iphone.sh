@@ -1,19 +1,15 @@
 #!/bin/bash
 #######################################################################
 #
-#  Project......: libinstaller.sh
+#  Project......: library-iphone.sh
 #  Creator......: matteyeux
-#  Description..: Script to install libimobiledevice 
-<<<<<<< HEAD:libinstaller.sh
-=======
-#  Original script by @Dev__Jam, I improved it
->>>>>>> origin/master:library-iphone.sh
+#  Description..: Script to install libimobiledevice
 #  Type.........: Public
 #
 ######################################################################
 # Language :
 #               bash
-# Version : 0.1
+# Version : 0.2
 #
 #  Change Log
 #  ==========
