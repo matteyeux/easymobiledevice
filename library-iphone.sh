@@ -4,6 +4,10 @@
 #  Project......: libinstaller.sh
 #  Creator......: matteyeux
 #  Description..: Script to install libimobiledevice 
+<<<<<<< HEAD:libinstaller.sh
+=======
+#  Original script by @Dev__Jam, I improved it
+>>>>>>> origin/master:library-iphone.sh
 #  Type.........: Public
 #
 ######################################################################
