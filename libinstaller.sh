@@ -3,8 +3,8 @@
 #
 #  Project......: libinstaller.sh
 #  Creator......: matteyeux
-#  Description..: Script to install libimobiledevice
-#  Type.........: Private
+#  Description..: Script to install libimobiledevice 
+#  Type.........: Public
 #
 ######################################################################
 # Language :
@@ -19,6 +19,7 @@
 #   ---------------------------------------------------------------
 #    27/12/15 | Mathieu Hautebas   | Script creation
 #   ---------------------------------------------------------------
+#  
 
 function apt-get(){
 	sudo apt-get install -y git
@@ -94,27 +95,6 @@ function brew(){
 	brew install findutils
 	# Install GNU `sed`, overwriting the built-in `sed`.
 	brew install gnu-sed --with-default-names
-	# Install Bash 4.
-	# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
-	# running `chsh`.
-	#brew install bash
-	#brew install bash-completion
-
-	# Install `wget` with IRI support.
-	#brew install wget --with-iri
-
-	# Install RingoJS and Narwhal.
-	# Note that the order in which these are installed is important;
-	# see http://git.io/brew-narwhal-ringo.
-	#brew install ringojs
-	#brew install narwhal
-
-	# Install more recent versions of some OS X tools.
-	#brew install vim --override-system-vi
-	#brew install homebrew/dupes/grep
-	#brew install homebrew/dupes/openssh
-	#brew install homebrew/dupes/screen
-	#brew install homebrew/php/php55 --with-gmp
 
 	# Install Development Packages;
 	brew install libxml2
@@ -174,13 +154,6 @@ function brew(){
 	brew install lynx
 	brew install p7zip
 	brew install pigz
-	#brew install pv
-	#brew install rename
-	#brew install rhino
-	#brew install speedtest_cli
-	#brew install tree
-	#brew install webkit2png
-	#brew install zopfli
 
 	# Install Node.js. Note: this installs `npm` too, using the recommended
 	# installation method.
