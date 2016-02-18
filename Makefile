@@ -8,16 +8,16 @@ all:
 
 linux : 
 		@echo 'Building easymobiledevice for Linux...'
-		@$(CC) src/easymobiledevice.c src/easymobiletools.c src/easymobiletools.h -o easymobiledevice
+		@$(CC) src/easymobiledevice.c src/easymobiletools.c -o easymobiledevice
 		@echo 'Succesfully built easymobiledevice for Linux'
 
 macos : 
 		@echo 'Building easymobiledevice for OS X...'
-		@$(CC) src/easymobiledevice.c src/easymobiletools.c src/easymobiletools.h
+		@$(CC) src/easymobiledevice.c src/easymobiletools.c
 		@ mv a.out easymobiledevice
 		@echo 'Succesfully built easymobiledevice for OS X'
 
 win :
 		@echo 'Building easymobiledevice for Windows...'
-		@$(CC) src/easymobiledevice.c src/easymobiletools.c src/easymobiletools.h -o easymobiledevice
+		@$(CC) src/easymobiledevice.c src/easymobiletools.c -o easymobiledevice
 		@echo 'Succesfully built easymobiledevice for Windows'
