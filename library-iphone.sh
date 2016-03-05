@@ -21,7 +21,7 @@
 #   ---------------------------------------------------------------
 #  
 
-function apt-get(){
+function depends(){
 	sudo apt-get install -y git
 	sudo apt-get install -y build-essential
 	sudo apt-get install -y make
@@ -65,7 +65,7 @@ function apt-get(){
 	sudo apt-get install -y ncurses-base
 }
 
-function brew(){
+function brew_install(){
 	# Install Hombrew.
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -198,21 +198,14 @@ function autobuild(){
 			echo -e "\033[1;32mInstalling $i..."
 			cd ..
 		done
-		echo -e "\033[0m"
 	}
 
-	function buildr {
-		buildlibs
-	}
-	echo -e "\033[1;37mLibimobiledevice library build script - Elrhk 2015"
-	buildr
+	buildlibs
 }
 
 if [[ $(uname) == 'Linux' ]]; then
-  apt-get
-  autobuild
-  exit 1
+	depends
 elif [[ $(uname) == 'Darwin' ]]; then
-	brew
-	autobuild
+	brew_install
 fi
+autobuild
