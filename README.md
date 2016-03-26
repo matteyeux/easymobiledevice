@@ -16,6 +16,11 @@ If you need some help contact me on Twitter : matteyeux
 Here are the originals sources of [autobuild.sh](https://github.com/Keyaku/OpenJailbreak/blob/master/autobuild.sh) & [brew.sh](https://github.com/mathiasbynens/dotfiles/blob/master/brew.sh)
 You can now run `library-iphone.sh` for OS X & Linux, the script will automaticaly build Libimobiledevice for your Operating System <br>
 
+If there is an error with libirecovery.so.2  : run `ldconfig`<br>
+For this error : <br>
+ERROR: Could not connect to lockdownd, error code -2 <br>
+run `killall usbmuxd & u bmuxd -u -f -v`.<br>
+
 #Credits
 
 Utility developed by Mathieu Hautebas ([@matteyeux](https://twitter.com/matteyeux)).<br> 
