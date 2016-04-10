@@ -1,10 +1,9 @@
 #!/bin/bash
 #######################################################################
 #
-#  Project......: libinstaller.sh
+#  Project......: library-iphone.sh
 #  Creator......: matteyeux
-#  Description..: Script to install libimobiledevice on OS X & Debian Distros
-#  initials scripts: brew.sh & autobuild.sh by DarkMalloc
+#  Description..: Script to install libimobiledevice
 #  Type.........: Public
 #
 ######################################################################
@@ -20,10 +19,9 @@
 #   ---------------------------------------------------------------
 #    27/12/15 | Mathieu Hautebas   | Script creation
 #   ---------------------------------------------------------------
-#    10/03/16 | HanSheng Zhang	   | Fix Stack overflow caused by naming issues
-#   ---------------------------------------------------------------
+#  
 
-function apt-get(){
+function depends(){
 	sudo apt-get install -y git
 	sudo apt-get install -y build-essential
 	sudo apt-get install -y make
@@ -67,15 +65,9 @@ function apt-get(){
 	sudo apt-get install -y ncurses-base
 }
 
-function brewfunc(){
+function brew_install(){
 	# Install Hombrew.
-	if ! type "brew" > /dev/null; then
-    	echo "brew Doesn't Exist.Installing"
-    	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-	else
-		echo "Brew Exists. Using"
-	fi
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 
 	# Install command-line tools using Homebrew.
@@ -86,25 +78,25 @@ function brewfunc(){
 	# Keep-alive: update existing `sudo` time stamp until the script has finished.
 	while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-	echo "Make sure we’re using the latest Homebrew."
+	# Make sure we’re using the latest Homebrew.
 	brew update
 
-	echo "Upgrade any already-installed formulae."
+	# Upgrade any already-installed formulae.
 	brew upgrade
 
-	echo "Install GNU core utilities (those that come with OS X are outdated)".
-	echo "Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`".
+	# Install GNU core utilities (those that come with OS X are outdated).
+	# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 	brew install coreutils
 	sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 
-	echo " Install some other useful utilities like `sponge`".
+	# Install some other useful utilities like `sponge`.
 	brew install moreutils
-	echo "Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed".
+	# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 	brew install findutils
-	echo  "Install GNU `sed`, overwriting the built-in `sed`".
+	# Install GNU `sed`, overwriting the built-in `sed`.
 	brew install gnu-sed --with-default-names
 
-	echo "Install Development Packages";
+	# Install Development Packages;
 	brew install libxml2
 	brew install libzip
 	brew install libplist
@@ -123,7 +115,7 @@ function brewfunc(){
 	brew install pkg-config
 	brew install gcc
 	brew install libusb
-	brew install homebrew/fuse/ifuse
+	brew install ifuse
 	brew install glib
 
 	# Install Optional;
@@ -178,7 +170,6 @@ function autobuild(){
 		"ideviceinstaller" "libideviceactivation" "idevicerestore" "ifuse" )
 
 	spinner() {
-		# What On Earth Is This?
 	    local pid=$1
 	    local delay=0.75
 	    local spinstr='|/-\'
@@ -207,26 +198,15 @@ function autobuild(){
 			echo -e "\033[1;32mInstalling $i..."
 			cd ..
 		done
-		echo -e "\033[0m"
 	}
 
-<<<<<<< HEAD
 	buildlibs
 	sudo ldconfig
-=======
-	function buildr {
-		buildlibs
-	}
-	echo -e "\033[1;37mLibimobiledevice library build script - Elrhk 2015"
-	buildr
->>>>>>> origin/master
 }
 
 if [[ $(uname) == 'Linux' ]]; then
-  apt-get
-  autobuild
-  exit 1
+	depends
 elif [[ $(uname) == 'Darwin' ]]; then
-	brewfunc
-	autobuild
+	brew_install
 fi
+autobuild
