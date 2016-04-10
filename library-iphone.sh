@@ -167,7 +167,7 @@ function autobuild(){
 	successlibs=()
 	failedlibs=()
 	libs=( "libplist" "libusbmuxd" "libimobiledevice" "usbmuxd" "libirecovery" \
-		"ideviceinstaller" "libideviceactivation" "idevicerestore" "sbmanager" "ifuse" )
+		"ideviceinstaller" "libideviceactivation" "idevicerestore" "ifuse" )
 
 	spinner() {
 	    local pid=$1
@@ -201,6 +201,7 @@ function autobuild(){
 	}
 
 	buildlibs
+	sudo ldconfig
 }
 
 if [[ $(uname) == 'Linux' ]]; then
