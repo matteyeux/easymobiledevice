@@ -37,15 +37,12 @@ function depends(){
 	sudo apt-get install -y libc6-dev
 	sudo apt-get install -y libssl-dev
 	sudo apt-get install -y libusb-1.0
-	sudo apt-get install -y gcc4.2
+	sudo apt-get install -y gcc
 	sudo apt-get install -y g++
 	sudo apt-get install -y libcurl4-gnutls-dev
 	sudo apt-get install -y fuse
 	sudo apt-get install -y libxml2-dev
 
-	sudo apt-get install -y libgfortran1
-	sudo apt-get install -y libgfortran2
-	sudo apt-get install -y libgfortran
 	sudo apt-get install -y libgcc1
 	sudo apt-get install -y libreadline-dev 
 	sudo apt-get install -y libglib2.0-dev
@@ -55,8 +52,7 @@ function depends(){
 	sudo apt-get install -y libclutter-gtk-1.0-dev
 	sudo apt-get install -y lib32bz2-dev
 	sudo apt-get install -y libfuse-dev
- 
-	sudo apt-get install -y subversion
+
 	sudo apt-get install -y cython
 	sudo apt-get install -y python-2.7
 	sudo apt-get install -y python2.7-numpy
