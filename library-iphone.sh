@@ -160,6 +160,9 @@ function brew_install(){
 }
 
 function autobuild(){
+	if [[ $(uname) == 'Darwin' ]]; then
+		brew link openssl --force
+	fi
 	successlibs=()
 	failedlibs=()
 	libs=( "libplist" "libusbmuxd" "libimobiledevice" "usbmuxd" "libirecovery" \
