@@ -1,30 +1,21 @@
-#Easymobiledevice 0.4
+#Easymobiledevice 
 
-=== ENGLISH ===
-
-Easymobiledevice is a command line interface to help you to use easier libimobiledevice.
+Easymobiledevice is a command line interface to help you to use libimobiledevice.
 
 Before executing this program you'll need to install libimobiledevice.
-Linux & OS users can use @Elro74's scripts which installs dependencies and compile it automaticly.
-I added these scripts to the project, in the installer folder.
+Linux & OS users can use [library-iphone.sh](https://github.com/matteyeux/easymobiledevice/blob/master/library-iphone.sh) which installs dependencies and compile it automatically.
 
-For windows you have to download [Libimobiledevice for Windows](https://github.com/matteyeux/easymobiledevice/releases/download/plop/Libimobiledevice.zip). Windows binary of easymobiledevice is already in this folder.
-
-If you need some help contact me on Twitter : matteyeux
+For windows you have to download [Libimobiledevice for Windows](https://github.com/elrhk/Libimobiledevice-idevicerestore-for-Windows). Windows binary (.exe) of easymobiledevice is already in this folder.
 
 #Installing libimobiledevice
-Here are the originals sources of [autobuild.sh](https://github.com/Keyaku/OpenJailbreak/blob/master/autobuild.sh) & [brew.sh](https://github.com/mathiasbynens/dotfiles/blob/master/brew.sh)
 You can now run `library-iphone.sh` for OS X & Linux, the script will automaticaly build Libimobiledevice for your Operating System <br>
 
-If there is an error with libirecovery.so.2  : run `ldconfig`<br>
-For this error : <br>
-ERROR: Could not connect to lockdownd, error code -2 <br>
-run `killall usbmuxd & u bmuxd -u -f -v`.<br>
+For this error : `ERROR: Could not connect to lockdownd, error code -2`<br>
+Please run `killall usbmuxd & u bmuxd -u -f -v`.<br>
 
 #Credits
 
 Utility developed by Mathieu Hautebas ([@matteyeux](https://twitter.com/matteyeux)).<br> 
 Thanks to libimobiledevice team to build awesome tools.<br> 
-Thanks to my friend [@Dev__Jam](https://twitter.com/Dev__Jam) for Libimobiledevice for Windows.<br> 
+Thanks to my friend [@Dev__Jam](https://twitter.com/Dev__Jam) for Libimobiledevice for Windows & initial script.<br> 
 Thanks to Lilo Colson([@Pwn1d](https://twitter.com/Pwn1d)) for contributed by adding some functions to clean code.
-
