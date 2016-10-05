@@ -7,19 +7,7 @@
 #  Type.........: Public
 #
 ######################################################################
-# Language :
-#               bash
-# Version : 0.2
-#
-#  Change Log
-#  ==========
-#
-#   ===============================================================
-#    Date     |       Who          |      What
-#   ---------------------------------------------------------------
-#    27/12/15 | Mathieu Hautebas   | Script creation
-#   ---------------------------------------------------------------
-#  
+# Language :   bash
 
 function depends(){
 	sudo apt-get install -y git
@@ -208,4 +196,5 @@ if [[ $(uname) == 'Linux' ]]; then
 elif [[ $(uname) == 'Darwin' ]]; then
 	brew_install
 fi
+# If you're running this script on Cygwin or MinGW it will only run autobuild
 autobuild
