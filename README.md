@@ -9,6 +9,7 @@ For Windows you have to download [Libimobiledevice for Windows](https://github.c
 
 #Installing libimobiledevice
 You can now run `library-iphone.sh` for OS X & Linux, the script will automaticaly build Libimobiledevice for your Operating System <br>
+It also works for other Operating Systems
 
 For this error : `ERROR: Could not connect to lockdownd, error code -2`<br>
 Please run `killall usbmuxd & u bmuxd -u -f -v`.<br>
