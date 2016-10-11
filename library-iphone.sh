@@ -92,8 +92,6 @@ function brew_install(){
 
 	# Install Software;
 	brew install automake
-	brew install cmake
-	brew install colormake
 	brew install autoconf
 	brew install libtool
 	brew install pkg-config
@@ -102,47 +100,9 @@ function brew_install(){
 	brew install ifuse
 	brew install glib
 
-	# Install Optional;
-	brew install screenfetch
-	brew install Caskroom/cask/osxfuse
-
 	# Install extras;
-	brew install bfg
-	brew install binutils
-	brew install binwalk
-	brew install cifer
-	brew install dex2jar
-	brew install dns2tcp
-	brew install fcrackzip
-	brew install foremost
-	brew install hashpump
-	brew install hydra
-	brew install john
-	brew install knock
-	brew install nmap
-	brew install pngcheck
-	brew install socat
-	brew install sqlmap
-	brew install tcpflow
-	brew install tcpreplay
-	brew install tcptrace
-	brew install ucspi-tcp # `tcpserver` etc.
 	brew install xz
-
-	# Install other useful binaries.
-	brew install ack
-	#brew install exiv2
 	brew install git
-	#brew install imagemagick --with-webp
-	brew install lua
-	brew install lynx
-	brew install p7zip
-	brew install pigz
-
-	# Install Node.js. Note: this installs `npm` too, using the recommended
-	# installation method.
-	brew install node
-
 	# Remove outdated versions from the cellar.
 	brew cleanup
 }
