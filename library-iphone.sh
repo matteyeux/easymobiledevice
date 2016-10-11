@@ -3,7 +3,7 @@
 #
 #  Project......: library-iphone.sh
 #  Creator......: matteyeux
-#  Description..: Script to install libimobiledevice
+#  Description..: Script to install libimobiledevice on Linux and macOS
 #  Type.........: Public
 #
 ######################################################################
