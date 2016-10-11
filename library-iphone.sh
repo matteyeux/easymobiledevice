@@ -35,10 +35,6 @@ function depends(){
 	sudo apt-get install -y libreadline-dev 
 	sudo apt-get install -y libglib2.0-dev
 	sudo apt-get install -y libzip-dev
-	sudo apt-get install -y libclutter-1.0-dev
-	sudo apt-get install -y libgtk2.0-dev
-	sudo apt-get install -y libclutter-gtk-1.0-dev
-	sudo apt-get install -y lib32bz2-dev
 	sudo apt-get install -y libfuse-dev
 
 	sudo apt-get install -y cython
@@ -51,11 +47,14 @@ function depends(){
 
 function brew_install(){
 	# Install Hombrew.
-	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-
-	# Install command-line tools using Homebrew.
-
+        if [[ ! -e $(which brew) ]]; then
+                echo "Brew is not installed..."
+                echo "installing brew..."
+                sleep 1
+                ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        else
+                echo "Brew already installed"
+        fi
 	# Ask for the administrator password upfront.
 	sudo -v
 
