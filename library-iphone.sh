@@ -1,52 +1,34 @@
-#!/bin/bash
+##!/bin/bash
+echo -e "\033[31mDev-Jam 12/01/2015 - Script to build Libimobiledevice\033[0m"
+echo -e "\033[32m\033[1m\033[4m\033[5m\033[7mCreator Dev-Jam improved by matteyeux on 27/12/15\033[0m"
+
 #######################################################################
 #
-#  Project......: library-iphone.sh
-#  Creator......: matteyeux
-#  Description..: Script to install libimobiledevice on Linux and macOS
-#  Type.........: Public
-#
-######################################################################
-# Language :   bash
+#  Project......: autobuild.sh
+#  Creator......: Dev-Jam remasterized for Matteyeux le 27/12/15
+#######################################################################
+
+
 
 function depends(){
-	sudo apt-get install -y git
-	sudo apt-get install -y build-essential
-	sudo apt-get install -y make
-	sudo apt-get install -y autoconf
-	sudo apt-get install -y automake
-	sudo apt-get install -y libtool
-	sudo apt-get install -y openssl
-	sudo apt-get install -y tar
-	sudo apt-get install -y perl
-	sudo apt-get install -y binutils
-	sudo apt-get install -y gcc
-	sudo apt-get install -y libstdc++6-dev
-	sudo apt-get install -y libc6-dev
-	sudo apt-get install -y libssl-dev
-	sudo apt-get install -y libusb-1.0
-	sudo apt-get install -y gcc
-	sudo apt-get install -y g++
-	sudo apt-get install -y libcurl4-gnutls-dev
-	sudo apt-get install -y fuse
-	sudo apt-get install -y libxml2-dev
 
-	sudo apt-get install -y libgcc1
-	sudo apt-get install -y libreadline-dev 
-	sudo apt-get install -y libglib2.0-dev
-	sudo apt-get install -y libzip-dev
-	sudo apt-get install -y libfuse-dev
-
-	sudo apt-get install -y cython
-	sudo apt-get install -y python-2.7
-	sudo apt-get install -y python2.7-numpy
-	sudo apt-get install -y libncurses4 
-	sudo apt-get install -y libncurses5 
-	sudo apt-get install -y ncurses-base
+        if [[ $(which apt-get) ]]; then
+                sudo apt-get install -y git build-essential make autoconf \
+                automake libtool openssl tar perl binutils gcc g++ \
+                libc6-dev libssl-dev libusb-1.0-0-dev \
+                libcurl4-gnutls-dev fuse libxml2-dev \
+                libgcc1 libreadline-dev libglib2.0-dev libzip-dev \
+                libclutter-1.0-dev  \
+                libfuse-dev cython python2.7 \
+                libncurses5
+        else
+                echo "Package manager is not supported"
+                exit 1
+        fi
 }
 
 function brew_install(){
-	# Install Hombrew.
+        # Install Hombrew.
         if [[ ! -e $(which brew) ]]; then
                 echo "Brew is not installed..."
                 echo "installing brew..."
@@ -55,105 +37,106 @@ function brew_install(){
         else
                 echo "Brew already installed"
         fi
-	# Ask for the administrator password upfront.
-	sudo -v
 
-	# Keep-alive: update existing `sudo` time stamp until the script has finished.
-	while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+        # Install command-line tools using Homebrew.
 
-	# Make sure we’re using the latest Homebrew.
-	brew update
+        # Ask for the administrator password upfront.
+        sudo -v
 
-	# Upgrade any already-installed formulae.
-	brew upgrade
+        # Keep-alive: update existing `sudo` time stamp until the script has finished.
+        while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-	# Install GNU core utilities (those that come with OS X are outdated).
-	# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-	brew install coreutils
-	sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
+        # Make sure we’re using the latest Homebrew.
+        brew update
 
-	# Install some other useful utilities like `sponge`.
-	brew install moreutils
-	# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
-	brew install findutils
-	# Install GNU `sed`, overwriting the built-in `sed`.
-	brew install gnu-sed --with-default-names
+        # Upgrade any already-installed formulae.
+        brew upgrade
 
-	# Install Development Packages;
-	brew install libxml2
-	brew install libzip
-	brew install libplist
-	brew install openssl
-	brew install clutter
-	brew install cogl
-	brew install usbmuxd
+	 # Install Development Packages;
+        brew install libxml2
+        brew install libzip
+        brew install libplist
+        brew install openssl
+        brew install usbmuxd
 
 
-	# Install Software;
-	brew install automake
-	brew install autoconf
-	brew install libtool
-	brew install pkg-config
-	brew install gcc
-	brew install libusb
-	brew install ifuse
-	brew install glib
+        # Install Software;
+        brew install automake
+        brew install cmake
+        brew install colormake
+        brew install autoconf
+        brew install libtool
+        brew install pkg-config
+        brew install gcc
+        brew install libusb
+        brew install glib
 
-	# Install extras;
-	brew install xz
-	brew install git
-	# Remove outdated versions from the cellar.
-	brew cleanup
+        # Install Optional;
+        brew install Caskroom/cask/osxfuse
+
+        
+        # Install other useful binaries.
+        brew install ack
+        #brew install exiv2
+        brew install git
+
+        # Remove outdated versions from the cellar.
+        brew cleanup
+         
 }
 
-function autobuild(){
-	if [[ $(uname) == 'Darwin' ]]; then
-		brew link openssl --force
-	fi
-	successlibs=()
-	failedlibs=()
-	libs=( "libplist" "libusbmuxd" "libimobiledevice" "usbmuxd" "libirecovery" \
-		"ideviceinstaller" "libideviceactivation" "idevicerestore" "ifuse" )
+function build_libimobiledevice(){
+        if [[ $(uname) == 'Darwin' ]]; then
+                brew link openssl --force
+        fi
+        successlibs=()
+        failedlibs=()
+        libs=( "libplist" "libusbmuxd" "libimobiledevice" "usbmuxd" "libirecovery" \
+                "ideviceinstaller" "libideviceactivation" "idevicerestore" "ifuse" )
 
-	spinner() {
-	    local pid=$1
-	    local delay=0.75
-	    local spinstr='|/-\'
-	    echo "$pid" > "/tmp/.spinner.pid"
-	    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
-	        local temp=${spinstr#?}
-	        printf " [%c]  " "$spinstr"
-	        local spinstr=$temp${spinstr%"$temp"}
-	        sleep $delay
-	        printf "\b\b\b\b\b\b"
-	    done
-	    printf "    \b\b\b\b"
-	}
+        spinner() {
+            local pid=$1
+            local delay=0.75
+            local spinstr='|/-\'
+            echo "$pid" > "/tmp/.spinner.pid"
+            while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+                local temp=${spinstr#?}
+                printf " [%c]  " "$spinstr"
+                local spinstr=$temp${spinstr%"$temp"}
+                sleep $delay
+                printf "\b\b\b\b\b\b"
+            done
+            printf "    \b\b\b\b"
+        }
 
-	buildlibs() {
-		for i in "${libs[@]}"
-		do
-			echo -e "\033[1;32mFetching $i..."
-			git clone https://github.com/libimobiledevice/${i}.git
-			cd $i
-			echo -e "\033[1;32mConfiguring $i..."
-			./autogen.sh
-			./configure
-			echo -e "\033[1;32mBuilding $i..."
-			make && sudo make install
-			echo -e "\033[1;32mInstalling $i..."
-			cd ..
-		done
-	}
+        buildlibs() {
+                for i in "${libs[@]}"
+                do
+                        echo -e "\033[1;32mFetching $i..."
+                        git clone https://github.com/libimobiledevice/${i}.git
+                        cd $i
+                        echo -e "\033[1;32mConfiguring $i..."
+                        ./autogen.sh
+                        ./configure
+                        echo -e "\033[1;32mBuilding $i..."
+                        make && sudo make install
+                        echo -e "\033[1;32mInstalling $i..."
+                        cd ..
+                done
+        }
 
-	buildlibs
-	sudo ldconfig
+        buildlibs
+        if [[ -e $(which ldconfig) ]]; then
+        	ldconfig
+        else 
+        	echo " "
+        fi
 }
 
 if [[ $(uname) == 'Linux' ]]; then
-	depends
+        depends
 elif [[ $(uname) == 'Darwin' ]]; then
-	brew_install
+        brew_install
 fi
-# If you're running this script on Cygwin or MinGW it will only run autobuild
-autobuild
+build_libimobiledevice
+echo -e "\033[32m\033[1m\033[4m\033[5m\033[7mLibimobiledevice installed success Thanks for use Script\033[0m"
