@@ -56,9 +56,7 @@ function brew_install(){
         brew install libxml2
         brew install libzip
         brew install libplist
-        brew install openssl
         brew install usbmuxd
-
 
         # Install Software;
         brew install automake
@@ -82,32 +80,19 @@ function brew_install(){
 
         # Remove outdated versions from the cellar.
         brew cleanup
-         
+	
+	# OpenSSL shit
+	git https://github.com/openssl/openssl.git
+        cd openssl
+ 	./config
+	make && make test && sudo make install
+	cd ..
+	rm -rf openssl
 }
 
 function build_libimobiledevice(){
-        if [[ $(uname) == 'Darwin' ]]; then
-                brew link openssl --force
-        fi
-        successlibs=()
-        failedlibs=()
         libs=( "libplist" "libusbmuxd" "libimobiledevice" "usbmuxd" "libirecovery" \
                 "ideviceinstaller" "libideviceactivation" "idevicerestore" "ifuse" )
-
-        spinner() {
-            local pid=$1
-            local delay=0.75
-            local spinstr='|/-\'
-            echo "$pid" > "/tmp/.spinner.pid"
-            while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
-                local temp=${spinstr#?}
-                printf " [%c]  " "$spinstr"
-                local spinstr=$temp${spinstr%"$temp"}
-                sleep $delay
-                printf "\b\b\b\b\b\b"
-            done
-            printf "    \b\b\b\b"
-        }
 
         buildlibs() {
                 for i in "${libs[@]}"
