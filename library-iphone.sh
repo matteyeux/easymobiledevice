@@ -102,7 +102,6 @@ function build_libimobiledevice(){
                         cd $i
                         echo -e "\033[1;32mConfiguring $i..."
                         ./autogen.sh
-                        ./configure
                         echo -e "\033[1;32mBuilding $i..."
                         make && sudo make install
                         echo -e "\033[1;32mInstalling $i..."
