@@ -1,16 +1,16 @@
 ##!/bin/bash
-echo -e "\033[31mDev-Jam 12/01/2015 - Script to build Libimobiledevice\033[0m"
-echo -e "\033[32m\033[1m\033[4m\033[5m\033[7mCreator Dev-Jam improved by matteyeux on 27/12/15\033[0m"
+echo -e "\033[31mDev-Jam 12/01/2015 - Script to build & install  Libimobiledevice\033[0m"
+echo -e "\033[32m\033[1m\033[4m\033[5m\033[7mCreated by Dev-Jam, improved by @matteyeux on 27/12/15\033[0m"
 
 #######################################################################
 #
 #  Project......: autobuild.sh
-#  Creator......: Dev-Jam remasterized for Matteyeux le 27/12/15
+#  Creator......: Dev-Jam remasterized by matteyeux on 27/12/15
 #######################################################################
 
 
 
-function depends(){
+function linux_depends(){
 
         if [[ $(which apt-get) ]]; then
                 sudo apt-get install -y git build-essential make autoconf \
@@ -27,7 +27,7 @@ function depends(){
         fi
 }
 
-function brew_install(){
+function macos_depends(){
         # Install Hombrew.
         if [[ ! -e $(which brew) ]]; then
                 echo "Brew is not installed..."
@@ -37,9 +37,7 @@ function brew_install(){
         else
                 echo "Brew already installed"
         fi
-
-        # Install command-line tools using Homebrew.
-
+	
         # Ask for the administrator password upfront.
         sudo -v
 
@@ -52,7 +50,7 @@ function brew_install(){
         # Upgrade any already-installed formulae.
         brew upgrade
 
-	 # Install Development Packages;
+	# Install Development Packages;
         brew install libxml2
         brew install libzip
         brew install libplist
@@ -75,7 +73,6 @@ function brew_install(){
         
         # Install other useful binaries.
         brew install ack
-        #brew install exiv2
         brew install git
 
         # Remove outdated versions from the cellar.
@@ -85,9 +82,9 @@ function brew_install(){
 	git https://github.com/openssl/openssl.git
         cd openssl
  	./config
-	make && make test && sudo make install
+	make && sudo make install
 	cd ..
-	rm -rf openssl
+	rm -rf openssl # clean
 }
 
 function build_libimobiledevice(){
@@ -118,9 +115,9 @@ function build_libimobiledevice(){
 }
 
 if [[ $(uname) == 'Linux' ]]; then
-        depends
+        linux_depends
 elif [[ $(uname) == 'Darwin' ]]; then
-        brew_install
+        macos_depends
 fi
 build_libimobiledevice
-echo -e "\033[32m\033[1m\033[4m\033[5m\033[7mLibimobiledevice installed success Thanks for use Script\033[0m"
+echo -e "\033[32m\033[1m\033[4m\033[5m\033[7mLibimobiledevice successfully installed thanks for using this script\033[0m"
