@@ -77,7 +77,7 @@ function macos_depends(){
         brew cleanup
 	
 	# OpenSSL shit
-	git https://github.com/openssl/openssl.git
+	git clone https://github.com/openssl/openssl.git
         cd openssl
  	./config
 	make && sudo make install
