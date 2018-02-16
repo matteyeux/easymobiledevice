@@ -118,4 +118,7 @@ elif [[ $(uname) == 'Darwin' ]]; then
         macos_depends
 fi
 build_libimobiledevice
+if [[ $(uname) == 'Linux' ]]; then
+	sudo ldconfig
+fi
 echo -e "\033[32m\033[1m\033[4m\033[5m\033[7mLibimobiledevice successfully installed thanks for using this script\033[0m"
